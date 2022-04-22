@@ -15,11 +15,18 @@ namespace NewPracticBD
     
     public partial class shaurmaEntities : DbContext
     {
+        private static shaurmaEntities _context;
         public shaurmaEntities()
             : base("name=shaurmaEntities")
         {
         }
-    
+        public static shaurmaEntities GetContext()
+        {
+            if (_context == null)
+                _context = new shaurmaEntities();
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
