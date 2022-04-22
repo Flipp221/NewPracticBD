@@ -238,6 +238,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Photo\mail.png" />
+    <Resource Include="Photo\person.png" />
+    <Resource Include="Photo\phone.png" />
     <Resource Include="Photo\exit.png" />
   </ItemGroup>
   <ItemGroup>

@@ -36,20 +36,18 @@ namespace NewPracticBD
                                 {
                                     MessageBox.Show($"Привет Пользователь  ваш персональный Id - {number_User.id_user}");
                                     MainWindow.vhodUser = number_User;
-                                MainWindow.User = users;
-
+                                    MainWindow.User = users;
                                 }
                                 if (number_User.password == PassTB.Password.Trim() && number_User.id_user == 2)
                                 {
                                     MessageBox.Show($"Привет админ  ваш персональный Id -  {number_User.id_user}");
-                                MainWindow.User = users;
+                                    MainWindow.User = users;
                                     MainWindow.vhodUser = number_User;
-
-                            }
+                                }
                                 OsnovaPage wd = new OsnovaPage();
                                 wd.Show();
                                 this.Close();
-                            }
+                                }
                     }  
         }
     }

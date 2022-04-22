@@ -78,11 +78,32 @@ namespace NewPracticBD
             glavphoto.Visibility = Visibility.Visible;
             glavbTB.Visibility = Visibility.Visible;
             glavTB.Visibility = Visibility.Visible;
+            dan.Visibility = Visibility.Hidden;
+            name.Visibility = Visibility.Hidden;
+            fam.Visibility = Visibility.Hidden;
+            mail.Visibility = Visibility.Hidden;
+            phone.Visibility = Visibility.Hidden;
         }
         private void Fillipp()
         {
             infoTB.Text = MainWindow.User.name;
             InfTB.Text = MainWindow.User.sname;
+            nameTB.Text = MainWindow.User.name;
+            FamTB.Text = MainWindow.User.sname;
+            MailTB.Text = MainWindow.User.email;
+            PhoneTB.Text = MainWindow.User.phone;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            dan.Visibility = Visibility.Visible;
+            name.Visibility = Visibility.Visible;
+            fam.Visibility = Visibility.Visible;
+            mail.Visibility = Visibility.Visible;
+            phone.Visibility = Visibility.Visible;
+            glavphoto.Visibility = Visibility.Hidden;
+            glavbTB.Visibility = Visibility.Hidden;
+            glavTB.Visibility = Visibility.Hidden;
         }
     }
 }

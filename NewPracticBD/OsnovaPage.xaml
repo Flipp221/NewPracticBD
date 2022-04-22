@@ -50,7 +50,7 @@
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Photo/profile.png" Height="25" VerticalAlignment="Center"/>
-                            <Button Content="Профиль" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                            <Button Content="Профиль" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Click="Button_Click_1"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="40">
@@ -67,5 +67,34 @@
         </Grid>
         <TextBox x:Name="glavTB" Visibility="Hidden" HorizontalAlignment="Left" IsReadOnly="True" FontSize="20" Height="114" Margin="150,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="Добро пожаловать в наше кафе!!!" VerticalAlignment="Top" Width="650" FontFamily="Comic Sans MS" FontWeight="Bold" BorderBrush="{x:Null}"/>
         <TextBox x:Name="glavbTB" Visibility="Hidden" HorizontalAlignment="Left" IsReadOnly="True" Height="36" Margin="316,60,0,0" TextWrapping="Wrap" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="В кафе у дяди Фили!" VerticalAlignment="Top" Width="304" FontFamily="Comic Sans MS" FontWeight="Bold" CaretBrush="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="dan" IsReadOnly="True" Visibility="Hidden" HorizontalAlignment="Left" Height="49" Margin="195,24,0,0" TextWrapping="Wrap" Text="Личные данные" VerticalAlignment="Top" Width="186"  FontFamily="Comic Sans MS" FontSize="20" BorderBrush="{x:Null}"/>
+        <StackPanel>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontFamily="Century Gothic" FontSize="14" Foreground="White" BorderBrush="Transparent" Background="Transparent" FontWeight="Bold" Height="348" Margin="152,100,391,0">
+                <ListViewItem Height="40">
+                    <StackPanel x:Name="name" Orientation="Horizontal" Visibility="Hidden" IsEnabled="False">
+                        <Image  Source="Photo/person.png" Height="25" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nameTB" Text="Главная" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="96" Height="36" RenderTransformOrigin="0.24,0.481" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="40">
+                    <StackPanel x:Name="fam" Orientation="Horizontal" Visibility="Hidden" IsEnabled="False">
+                        <Image Source="Photo/person.png" Height="25" VerticalAlignment="Center"/>
+                        <TextBox x:Name="FamTB" Text="Главная" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="96" Height="36" RenderTransformOrigin="0.24,0.481" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="40">
+                    <StackPanel x:Name="mail" Orientation="Horizontal" Visibility="Hidden" IsEnabled="False">
+                        <Image Source="Photo/mail.png" Height="25" VerticalAlignment="Center"/>
+                        <TextBox x:Name="MailTB" Text="Главная" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="96" Height="36" RenderTransformOrigin="0.24,0.481" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="40">
+                    <StackPanel x:Name="phone" Orientation="Horizontal" Visibility="Hidden" IsEnabled="False">
+                        <Image Source="Photo/phone.png" Height="25" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PhoneTB"  HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" Width="96" Height="36" RenderTransformOrigin="0.24,0.481" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Window>
