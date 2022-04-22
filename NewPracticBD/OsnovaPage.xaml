@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewPracticBD"
         mc:Ignorable="d"
-        Title="OsnovaPage" Height="450" Width="800">
+        Title="OsnovaPage" Height="450" Width="800"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        
+        <Image x:Name="glavphoto" Visibility="Hidden" Source="glav.png" Stretch="Fill" Height="336" VerticalAlignment="Bottom"/>
+        <Grid x:Name="panelHeader" VerticalAlignment="Top" Height="50" MouseDown="PanelHeader_MouseDown" Margin="0,0,652,0"/>
+        <Grid x:Name="sidePanel" Background="#FFA577" HorizontalAlignment="Left" Width="150">
+            <StackPanel>
+                <Grid Height="150" Background="#FFA577">
+                    <Image Source="Photo/logo.png" Margin="43,10,59,86"></Image>
+                    <Button HorizontalAlignment="Right" Height="20" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" Click="Panel_Click">
+                        <Image Source="Photo/menupanel.png"/>
+                    </Button>
+                    <TextBox x:Name="infoTB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" HorizontalAlignment="Left" Height="25" Margin="19,56,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="98" Foreground="Black" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+                    <TextBox x:Name="InfTB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" HorizontalAlignment="Left" Height="25" Margin="19,69,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="98" Foreground="Black" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontFamily="Century Gothic" FontSize="14" Foreground="White" BorderBrush="Transparent" Background="Transparent" FontWeight="Bold" Height="301">
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Photo/home.png" Height="25" VerticalAlignment="Center"/>
+                            <Button Content="Главная" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="96" Height="36" RenderTransformOrigin="0.24,0.481" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Click="Button_Click"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Photo/zakaz.png" Height="25" VerticalAlignment="Center"/>
+                            <Button Content="Мои заказы" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="117" Height="36" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Photo/menu.png" Height="25" VerticalAlignment="Center"/>
+                            <Button Content="Меню" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="77" Height="36" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"  FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Photo/uslugi.png" Height="25" VerticalAlignment="Center"/>
+                            <Button Content="Услуги" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="86" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Photo/profile.png" Height="25" VerticalAlignment="Center"/>
+                            <Button Content="Профиль" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal"/>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Photo/exit.png" Height="25" VerticalAlignment="Center"/>
+                            <Button x:Name="RegBut" Content="Выйти"  HorizontalAlignment="Left" Margin="-10,0,0,0" VerticalAlignment="Top" FontSize="14" Width="105" Height="29" Foreground="White" BorderBrush="{x:Null}" Click="RegBut_Click" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <TextBox x:Name="glavTB" Visibility="Hidden" HorizontalAlignment="Left" IsReadOnly="True" FontSize="20" Height="114" Margin="150,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="Добро пожаловать в наше кафе!!!" VerticalAlignment="Top" Width="650" FontFamily="Comic Sans MS" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="glavbTB" Visibility="Hidden" HorizontalAlignment="Left" IsReadOnly="True" Height="36" Margin="316,60,0,0" TextWrapping="Wrap" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="В кафе у дяди Фили!" VerticalAlignment="Top" Width="304" FontFamily="Comic Sans MS" FontWeight="Bold" CaretBrush="{x:Null}" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

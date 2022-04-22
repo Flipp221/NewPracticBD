@@ -22,8 +22,8 @@ namespace NewPracticBD
     public partial class MainWindow : Window
     {
         public static shaurmaEntities db = new shaurmaEntities();
-
         public static number_user vhodUser;
+        public static users User;
         DispatcherTimer timer;
         double panelWidth;
         bool hidden;

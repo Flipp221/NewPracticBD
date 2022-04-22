@@ -13,5 +13,6 @@ namespace NewPracticBD
     /// </summary>
     public partial class App : Application
     {
+        public static users user { get; set; }
     }
 }
