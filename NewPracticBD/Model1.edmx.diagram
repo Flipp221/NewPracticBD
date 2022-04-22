@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5bbf9da4a4424c819954c88e90cf4b36" Name="Diagram1">
+        <EntityTypeShape EntityType="shaurmaModel.lavash" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.Luck" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.myasko" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.number_user" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.ogurci" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.pomidori" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.price" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.roll" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.Sklad" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.sosiska" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.sprice" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.time" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.users" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shaurmaModel.uslugi" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="shaurmaModel.FK_Sklad_lavash" />
+        <AssociationConnector Association="shaurmaModel.FK_Sklad_Luck" />
+        <AssociationConnector Association="shaurmaModel.FK_Sklad_myasko" />
+        <AssociationConnector Association="shaurmaModel.FK_number_user_users" />
+        <AssociationConnector Association="shaurmaModel.FK_Sklad_ogurci" />
+        <AssociationConnector Association="shaurmaModel.FK_Sklad_pomidori" />
+        <AssociationConnector Association="shaurmaModel.FK_uslugi_price" />
+        <AssociationConnector Association="shaurmaModel.FK_users_roll" />
+        <AssociationConnector Association="shaurmaModel.FK_Sklad_sosiska" />
+        <AssociationConnector Association="shaurmaModel.FK_uslugi_sprice" />
+        <AssociationConnector Association="shaurmaModel.FK_uslugi_time" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
