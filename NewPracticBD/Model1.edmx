@@ -9,28 +9,28 @@
           <Key>
             <PropertyRef Name="id_lavash" />
           </Key>
-          <Property Name="id_lavash" Type="int" Nullable="false" />
+          <Property Name="id_lavash" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kolich" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Luck">
           <Key>
             <PropertyRef Name="id_luck" />
           </Key>
-          <Property Name="id_luck" Type="int" Nullable="false" />
+          <Property Name="id_luck" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kolich" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="myasko">
           <Key>
             <PropertyRef Name="id_myaso" />
           </Key>
-          <Property Name="id_myaso" Type="int" Nullable="false" />
+          <Property Name="id_myaso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kolich" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="number_user">
           <Key>
             <PropertyRef Name="id_number" />
           </Key>
-          <Property Name="id_number" Type="int" Nullable="false" />
+          <Property Name="id_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="50" />
           <Property Name="id_user" Type="int" />
         </EntityType>
@@ -38,35 +38,35 @@
           <Key>
             <PropertyRef Name="id_ogurec" />
           </Key>
-          <Property Name="id_ogurec" Type="int" Nullable="false" />
+          <Property Name="id_ogurec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kolich" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="pomidori">
           <Key>
             <PropertyRef Name="id_pomidori" />
           </Key>
-          <Property Name="id_pomidori" Type="int" Nullable="false" />
+          <Property Name="id_pomidori" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kolich" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="price">
           <Key>
             <PropertyRef Name="id_price" />
           </Key>
-          <Property Name="id_price" Type="int" Nullable="false" />
+          <Property Name="id_price" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="roll">
           <Key>
             <PropertyRef Name="id_roll" />
           </Key>
-          <Property Name="id_roll" Type="int" Nullable="false" />
+          <Property Name="id_roll" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Sklad">
           <Key>
             <PropertyRef Name="id_sklad" />
           </Key>
-          <Property Name="id_sklad" Type="int" Nullable="false" />
+          <Property Name="id_sklad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
           <Property Name="id_lavash" Type="int" Nullable="false" />
           <Property Name="id_luck" Type="int" Nullable="false" />
@@ -79,28 +79,38 @@
           <Key>
             <PropertyRef Name="id_sosiska" />
           </Key>
-          <Property Name="id_sosiska" Type="int" Nullable="false" />
+          <Property Name="id_sosiska" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kolich" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sprice">
           <Key>
             <PropertyRef Name="id_sprice" />
           </Key>
-          <Property Name="id_sprice" Type="int" Nullable="false" />
+          <Property Name="id_sprice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="time">
           <Key>
             <PropertyRef Name="id_time" />
           </Key>
-          <Property Name="id_time" Type="int" Nullable="false" />
+          <Property Name="id_time" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="id_user" />
           </Key>
-          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
           <Property Name="sname" Type="varchar" MaxLength="50" />
           <Property Name="phone" Type="varchar" MaxLength="50" />
@@ -111,7 +121,7 @@
           <Key>
             <PropertyRef Name="id_usluga" />
           </Key>
-          <Property Name="id_usluga" Type="int" Nullable="false" />
+          <Property Name="id_usluga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
           <Property Name="id_price" Type="int" Nullable="false" />
           <Property Name="id_time" Type="int" Nullable="false" />
@@ -249,6 +259,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище shaurmaModelContainer">
           <EntitySet Name="lavash" EntityType="Self.lavash" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Luck" EntityType="Self.Luck" Schema="dbo" store:Type="Tables" />
@@ -261,6 +302,7 @@
           <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sosiska" EntityType="Self.sosiska" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sprice" EntityType="Self.sprice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="time" EntityType="Self.time" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uslugi" EntityType="Self.uslugi" Schema="dbo" store:Type="Tables" />
@@ -506,6 +548,37 @@
             <End Role="time" EntitySet="time" />
             <End Role="uslugi" EntitySet="uslugi" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="shaurmaModel.sysdiagrams" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(shaurmaModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(shaurmaModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
         <Association Name="FK_Sklad_lavash">
           <End Type="shaurmaModel.lavash" Role="lavash" Multiplicity="1" />
@@ -639,6 +712,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -771,6 +865,41 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="shaurmaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище shaurmaModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище shaurmaModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище shaurmaModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище shaurmaModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="shaurmaModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище shaurmaModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="shaurmaModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище shaurmaModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище shaurmaModel.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

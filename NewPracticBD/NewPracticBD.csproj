@@ -75,8 +75,11 @@
     <Compile Include="lavash.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
+      <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Luck.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -94,6 +97,9 @@
     </Compile>
     <Compile Include="ogurci.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OsnovaPage.xaml.cs">
+      <DependentUpon>OsnovaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pomidori.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -113,6 +119,15 @@
     <Compile Include="sprice.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="time.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -122,7 +137,15 @@
     <Compile Include="uslugi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Page Include="LoginPage.xaml">
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OsnovaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

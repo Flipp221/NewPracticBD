@@ -17,9 +17,9 @@ namespace NewPracticBD
     /// <summary>
     /// Логика взаимодействия для LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Window
+    public partial class RegPage : Window
     {
-        public LoginPage()
+        public RegPage()
         {
             InitializeComponent();
         }
@@ -54,6 +54,9 @@ namespace NewPracticBD
                     MessageBox.Show("Такое имя пользователя или логин уже существует");
                 }
                 MessageBox.Show("Успешно!");
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
             }
         }
     }

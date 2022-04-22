@@ -1,0 +1,26 @@
+﻿<Window x:Class="NewPracticBD.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:NewPracticBD"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="500" Background="#FFA577" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Image Source="Photo/logo.png" Margin="203,0,203,341" RenderTransformOrigin="0.645,0.481"></Image>
+        <TextBlock HorizontalAlignment="Left" Margin="114,90,0,0" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Top" Foreground="White" Height="29" Width="267"><Run Text="Введите телефон или E-mail"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="loginTB" HorizontalAlignment="Left" Height="29" Margin="160,124,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="163" Background="#FFD55448" FontSize="18" BorderBrush="White" Foreground="White" FontFamily="Comic Sans MS"/>
+        <TextBlock HorizontalAlignment="Left" Margin="174,158,0,0" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Top" Foreground="White" Width="136" Height="30"><Run Text="Введите "/><Run Text="пароль"/></TextBlock>
+        <PasswordBox x:Name="PassTB" HorizontalAlignment="Left" Height="30" Margin="160,188,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="163" Background="#FFD55448" FontSize="18" BorderBrush="White" Foreground="White" FontFamily="Comic Sans MS"/>
+        <Button
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    materialDesign:ButtonProgressAssist.Value="-1"
+    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+            Background="#D55448"
+    Content="Войти"
+    Margin="141,236,159,182"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Button_Click_1" BorderBrush="White" />
+    </Grid>
+</Window>

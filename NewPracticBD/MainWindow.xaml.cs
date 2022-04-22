@@ -72,12 +72,14 @@ namespace NewPracticBD
 
         private void LogBut_Click(object sender, RoutedEventArgs e)
         {
-
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
 
         private void RegBut_Click(object sender, RoutedEventArgs e)
         {
-            LoginPage loginPage = new LoginPage();
+            RegPage loginPage = new RegPage();
             loginPage.Show();
             this.Close();
         }

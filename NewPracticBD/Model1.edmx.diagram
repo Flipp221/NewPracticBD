@@ -30,6 +30,7 @@
         <AssociationConnector Association="shaurmaModel.FK_Sklad_sosiska" />
         <AssociationConnector Association="shaurmaModel.FK_uslugi_sprice" />
         <AssociationConnector Association="shaurmaModel.FK_uslugi_time" />
+        <EntityTypeShape EntityType="shaurmaModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
