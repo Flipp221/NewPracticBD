@@ -83,6 +83,7 @@ namespace NewPracticBD
             fam.Visibility = Visibility.Hidden;
             mail.Visibility = Visibility.Hidden;
             phone.Visibility = Visibility.Hidden;
+            DGridKatalog.Visibility = Visibility.Hidden;
         }
         private void Fillipp()
         {
@@ -101,6 +102,28 @@ namespace NewPracticBD
             fam.Visibility = Visibility.Visible;
             mail.Visibility = Visibility.Visible;
             phone.Visibility = Visibility.Visible;
+            glavphoto.Visibility = Visibility.Hidden;
+            glavbTB.Visibility = Visibility.Hidden;
+            glavTB.Visibility = Visibility.Hidden;
+            DGridKatalog.Visibility = Visibility.Hidden;
+        }
+        private void Mouse_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                shaurmaEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(a => a.Reload());
+                DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            DGridKatalog.Visibility = Visibility.Visible;
+            dan.Visibility = Visibility.Hidden;
+            name.Visibility = Visibility.Hidden;
+            fam.Visibility = Visibility.Hidden;
+            mail.Visibility = Visibility.Hidden;
+            phone.Visibility = Visibility.Hidden;
             glavphoto.Visibility = Visibility.Hidden;
             glavbTB.Visibility = Visibility.Hidden;
             glavTB.Visibility = Visibility.Hidden;

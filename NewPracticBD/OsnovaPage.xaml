@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NewPracticBD"
         mc:Ignorable="d"
         Title="OsnovaPage" Height="450" Width="800"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" IsVisibleChanged="Mouse_IsVisibleChanged">
     <Grid>
         <Image x:Name="glavphoto" Visibility="Hidden" Source="glav.png" Stretch="Fill" Height="336" VerticalAlignment="Bottom"/>
         <Grid x:Name="panelHeader" VerticalAlignment="Top" Height="50" MouseDown="PanelHeader_MouseDown" Margin="0,0,652,0"/>
@@ -43,7 +43,7 @@
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Photo/uslugi.png" Height="25" VerticalAlignment="Center"/>
-                            <Button Content="Услуги" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="86" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                            <Button Content="Услуги" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="86" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Click="Button_Click_2"/>
 
                         </StackPanel>
                     </ListViewItem>
@@ -96,5 +96,12 @@
                 </ListViewItem>
             </ListView>
         </StackPanel>
+        <Grid>
+            <DataGrid Visibility="Hidden" x:Name="DGridKatalog" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,128,10,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding name}" Width="*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
