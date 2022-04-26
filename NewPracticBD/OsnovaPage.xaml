@@ -120,13 +120,21 @@
                 <TextBlock x:Name="uslugithTB" HorizontalAlignment="Left" Margin="442,98,-97,0" TextWrapping="Wrap" FontSize="18" Text="Себестоимость" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" Width="155"/>
             </Grid>
             <Grid>
-                <Button x:Name="DobBtn" 
+                <Button x:Name="DobBtn" Visibility="Hidden"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
     materialDesign:ButtonAssist.CornerRadius="25"
     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="159,10,458,408" Background="#FF01FF2F" BorderBrush="#FF17FF00" Click="DobBtn_Click">
                     <TextBlock
       Text="Добавить услугу" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
+                </Button>
+                <Button x:Name="DeleteDtn" Visibility="Hidden"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="607,10,10,408" Background="#FF01FF2F" BorderBrush="#FF17FF00" Click="DeleteDtn_Click">
+                    <TextBlock
+                        Text="Удалить услугу" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
             </Grid>
         </Grid>

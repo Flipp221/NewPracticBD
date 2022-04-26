@@ -27,6 +27,7 @@ namespace NewPracticBD
         public OsnovaPage()
         {
             InitializeComponent();
+            Visible();
             Fillipp();
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
@@ -75,6 +76,7 @@ namespace NewPracticBD
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DobBtn.Visibility = Visibility.Hidden;
             glavphoto.Visibility = Visibility.Visible;
             glavbTB.Visibility = Visibility.Visible;
             glavTB.Visibility = Visibility.Visible;
@@ -101,6 +103,7 @@ namespace NewPracticBD
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            DobBtn.Visibility = Visibility.Hidden;
             dan.Visibility = Visibility.Visible;
             name.Visibility = Visibility.Visible;
             fam.Visibility = Visibility.Visible;
@@ -126,6 +129,7 @@ namespace NewPracticBD
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            DobBtn.Visibility = Visibility.Visible;
             uslugithTB.Visibility = Visibility.Visible;
             UslugiOTB.Visibility = Visibility.Visible;
             UslugiTTB.Visibility = Visibility.Visible;
@@ -145,6 +149,41 @@ namespace NewPracticBD
         {
             AddUslugiPage page = new AddUslugiPage();
             page.Show();
+        }
+        public void Visible()
+        {
+            if (MainWindow.vhodUser.id_user != 2)
+            {
+                DobBtn.Visibility = Visibility.Hidden;
+                DeleteDtn.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                DobBtn.Visibility = Visibility.Visible;
+                DeleteDtn.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void DeleteDtn_Click(object sender, RoutedEventArgs e)
+        {
+            var MousesForRemoving = DGridKatalog.SelectedItems.Cast<uslugi>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить сдедующие{MousesForRemoving.Count()} элементов?", "Внимение",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    shaurmaEntities.GetContext().uslugi.RemoveRange(MousesForRemoving);
+                    shaurmaEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+
+                    DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }
