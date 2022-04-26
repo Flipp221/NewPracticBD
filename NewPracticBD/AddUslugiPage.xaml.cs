@@ -20,9 +20,12 @@ namespace NewPracticBD
     public partial class AddUslugiPage : Window
     {
         private uslugi _uslugi = new uslugi();
-        public AddUslugiPage()
+        public AddUslugiPage(uslugi selected)
         {
             InitializeComponent();
+            if (selected != null)
+                _uslugi = selected;
+
             DataContext = _uslugi;
             PriceCB.ItemsSource = shaurmaEntities.GetContext().price.ToList();
             TimeCB.ItemsSource = shaurmaEntities.GetContext().time.ToList();

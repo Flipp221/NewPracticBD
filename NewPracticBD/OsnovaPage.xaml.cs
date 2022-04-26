@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace NewPracticBD
@@ -147,7 +139,7 @@ namespace NewPracticBD
 
         private void DobBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddUslugiPage page = new AddUslugiPage();
+            AddUslugiPage page = new AddUslugiPage(null);
             page.Show();
         }
         public void Visible()
@@ -184,6 +176,13 @@ namespace NewPracticBD
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
+        }
+
+        private void Red_Click(object sender, RoutedEventArgs e)
+        {
+            AddUslugiPage page = new AddUslugiPage((sender as Button).DataContext as uslugi);
+            page.Show();
+            this.Close();
         }
     }
 }
