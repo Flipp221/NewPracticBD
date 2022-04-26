@@ -84,6 +84,10 @@ namespace NewPracticBD
             mail.Visibility = Visibility.Hidden;
             phone.Visibility = Visibility.Hidden;
             DGridKatalog.Visibility = Visibility.Hidden;
+            RamBTN.Visibility = Visibility.Hidden;
+            uslugithTB.Visibility = Visibility.Hidden;
+            UslugiOTB.Visibility = Visibility.Hidden;
+            UslugiTTB.Visibility = Visibility.Hidden;
         }
         private void Fillipp()
         {
@@ -106,6 +110,10 @@ namespace NewPracticBD
             glavbTB.Visibility = Visibility.Hidden;
             glavTB.Visibility = Visibility.Hidden;
             DGridKatalog.Visibility = Visibility.Hidden;
+            RamBTN.Visibility = Visibility.Hidden;
+            uslugithTB.Visibility = Visibility.Hidden;
+            UslugiOTB.Visibility = Visibility.Hidden;
+            UslugiTTB.Visibility = Visibility.Hidden;
         }
         private void Mouse_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -118,6 +126,10 @@ namespace NewPracticBD
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            uslugithTB.Visibility = Visibility.Visible;
+            UslugiOTB.Visibility = Visibility.Visible;
+            UslugiTTB.Visibility = Visibility.Visible;
+            RamBTN.Visibility = Visibility.Visible;
             DGridKatalog.Visibility = Visibility.Visible;
             dan.Visibility = Visibility.Hidden;
             name.Visibility = Visibility.Hidden;

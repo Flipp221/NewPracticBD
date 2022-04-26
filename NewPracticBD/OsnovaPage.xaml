@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:NewPracticBD"
         mc:Ignorable="d"
         Title="OsnovaPage" Height="450" Width="800"
@@ -100,8 +101,24 @@
             <DataGrid Visibility="Hidden" x:Name="DGridKatalog" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,128,10,0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding name}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding price.name}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding time.name}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding sprice.name}" Width="*"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
+            <Grid Width="500">
+                <Button x:Name="RamBTN" Visibility="Hidden"
+    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+    materialDesign:ButtonAssist.CornerRadius="25 25 0 0"
+    ToolTip="MaterialDesignRaisedAccentButton with Round Top Corners"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="0,94,-138,324">
+                    <TextBlock
+      Text="Название" Foreground="#DDFFFFFF" Margin="0,0,500,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18"/>
+                </Button>
+                <TextBlock x:Name="UslugiOTB" HorizontalAlignment="Left" Margin="177,98,0,0" TextWrapping="Wrap" FontSize="18" Text="Цена" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBlock x:Name="UslugiTTB" Margin="310,98,127,0" TextWrapping="Wrap" FontSize="18" Text="Время" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBlock x:Name="uslugithTB" HorizontalAlignment="Left" Margin="442,98,-97,0" TextWrapping="Wrap" FontSize="18" Text="Себестоимость" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" Width="155"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
