@@ -1,0 +1,50 @@
+﻿<Window x:Class="NewPracticBD.AddUslugiPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewPracticBD"
+        mc:Ignorable="d"
+        Title="AddUslugiPage" Height="450" Width="259.274" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FFFFA577">
+        <TextBox x:Name="NameTB"
+                 Text="{Binding name}"
+  materialDesign:HintAssist.Hint="Название блюда"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" Margin="10,10,10,372" />
+        <ComboBox x:Name="PriceCB"
+                    SelectedItem="{Binding price}"
+                  DisplayMemberPath="name"
+  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+  materialDesign:HintAssist.Hint="Цена"
+  ItemsSource="{Binding ShortStringList}"
+  materialDesign:TextFieldAssist.HasClearButton="True" Margin="10,68,10,332">
+        </ComboBox>
+        <ComboBox x:Name="TimeCB"
+                  SelectedItem="{Binding time}"
+                  DisplayMemberPath="name"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            materialDesign:HintAssist.Hint="Время"
+            ItemsSource="{Binding ShortStringList}"
+            materialDesign:TextFieldAssist.HasClearButton="True" Margin="10,123,10,277"/>
+        <ComboBox x:Name="SPriceCB"
+                  SelectedItem="{Binding sprice}"
+                  DisplayMemberPath="name"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            materialDesign:HintAssist.Hint="Себестоимость"
+            ItemsSource="{Binding ShortStringList}"
+            materialDesign:TextFieldAssist.HasClearButton="True" Margin="10,178,10,222"/>
+        <Grid
+  Width="124">
+            <Button
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    materialDesign:ButtonProgressAssist.Value="-1"
+    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+    Content="Сохранить"
+    Margin="-6,234,10,184"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Button_Click" />
+        </Grid>
+    </Grid>
+</Window>

@@ -140,5 +140,11 @@ namespace NewPracticBD
             glavbTB.Visibility = Visibility.Hidden;
             glavTB.Visibility = Visibility.Hidden;
         }
+
+        private void DobBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddUslugiPage page = new AddUslugiPage();
+            page.Show();
+        }
     }
 }
