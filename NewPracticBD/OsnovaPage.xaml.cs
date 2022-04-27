@@ -68,6 +68,7 @@ namespace NewPracticBD
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DeleteDtn.Visibility = Visibility.Hidden;
             DobBtn.Visibility = Visibility.Hidden;
             glavphoto.Visibility = Visibility.Visible;
             glavbTB.Visibility = Visibility.Visible;
@@ -95,6 +96,7 @@ namespace NewPracticBD
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            DeleteDtn.Visibility = Visibility.Hidden;
             DobBtn.Visibility = Visibility.Hidden;
             dan.Visibility = Visibility.Visible;
             name.Visibility = Visibility.Visible;
@@ -121,7 +123,16 @@ namespace NewPracticBD
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            DobBtn.Visibility = Visibility.Visible;
+            if (MainWindow.vhodUser.id_user != 2)
+            {
+                DobBtn.Visibility = Visibility.Hidden;
+                DeleteDtn.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                DobBtn.Visibility = Visibility.Visible;
+                DeleteDtn.Visibility = Visibility.Visible;
+            }
             uslugithTB.Visibility = Visibility.Visible;
             UslugiOTB.Visibility = Visibility.Visible;
             UslugiTTB.Visibility = Visibility.Visible;
@@ -141,18 +152,19 @@ namespace NewPracticBD
         {
             AddUslugiPage page = new AddUslugiPage(null);
             page.Show();
+            
         }
         public void Visible()
         {
             if (MainWindow.vhodUser.id_user != 2)
-            {
+            {              
                 DobBtn.Visibility = Visibility.Hidden;
                 DeleteDtn.Visibility = Visibility.Hidden;
             }
             else
             {
-                DobBtn.Visibility = Visibility.Visible;
-                DeleteDtn.Visibility = Visibility.Visible;
+                DobBtn.Visibility = Visibility.Hidden;
+                DeleteDtn.Visibility = Visibility.Hidden;
             }
         }
 

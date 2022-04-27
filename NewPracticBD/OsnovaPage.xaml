@@ -98,7 +98,7 @@
             </ListView>
         </StackPanel>
         <Grid>
-            <DataGrid Visibility="Visible" x:Name="DGridKatalog" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,128,10,0">
+            <DataGrid Visibility="Hidden" x:Name="DGridKatalog" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,128,10,0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding name}" Width="140"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding price.name}" Width="85"></DataGridTextColumn>
@@ -107,14 +107,14 @@
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Red" Content="Редактировать" Width="150" Click="Red_Click"></Button>
+                                <Button x:Name="RedactionBtn" Visibility="Hidden" Content="Редактировать" Width="150" Click="Red_Click"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <Grid Width="500">
-                <Button x:Name="RamBTN" Visibility="Visible"
+                <Button x:Name="RamBTN" Visibility="Hidden"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     materialDesign:ButtonAssist.CornerRadius="25 25 0 0"
     ToolTip="MaterialDesignRaisedAccentButton with Round Top Corners"
