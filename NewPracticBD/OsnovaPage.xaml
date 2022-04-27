@@ -104,10 +104,10 @@
                     <DataGridTextColumn Binding="{Binding price.name}" Width="85"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding time.name}" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding sprice.name}" Width="60"></DataGridTextColumn>
-                    <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn x:Name="RedBtn" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="RedactionBtn" Visibility="Hidden" Content="Редактировать" Width="150" Click="Red_Click"/>
+                                <Button Content="Редактировать" Width="150" Click="Red_Click"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

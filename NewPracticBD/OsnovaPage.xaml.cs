@@ -125,11 +125,13 @@ namespace NewPracticBD
         {
             if (MainWindow.vhodUser.id_user != 2)
             {
+                RedBtn.Visibility = Visibility.Hidden;
                 DobBtn.Visibility = Visibility.Hidden;
                 DeleteDtn.Visibility = Visibility.Hidden;
             }
             else
             {
+                RedBtn.Visibility = Visibility.Visible;
                 DobBtn.Visibility = Visibility.Visible;
                 DeleteDtn.Visibility = Visibility.Visible;
             }
@@ -157,12 +159,14 @@ namespace NewPracticBD
         public void Visible()
         {
             if (MainWindow.vhodUser.id_user != 2)
-            {              
+            {
                 DobBtn.Visibility = Visibility.Hidden;
                 DeleteDtn.Visibility = Visibility.Hidden;
+                RedBtn.Visibility = Visibility.Hidden;
             }
             else
             {
+                RedBtn.Visibility = Visibility.Hidden;
                 DobBtn.Visibility = Visibility.Hidden;
                 DeleteDtn.Visibility = Visibility.Hidden;
             }
