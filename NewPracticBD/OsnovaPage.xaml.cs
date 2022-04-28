@@ -15,6 +15,7 @@ namespace NewPracticBD
         public static number_user vhodUser;
         DispatcherTimer timer;
         double panelWidth;
+        
         bool hidden;
         public OsnovaPage()
         {
@@ -25,6 +26,17 @@ namespace NewPracticBD
             timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timer.Tick += Timer_Tick;
             panelWidth = sidePanel.Width;
+        }
+
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
+        }
+
+        public void aa ()
+        {
+            DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -223,7 +235,6 @@ namespace NewPracticBD
         {
             AddUslugiPage page = new AddUslugiPage((sender as Button).DataContext as uslugi);
             page.Show();
-            this.Close();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)

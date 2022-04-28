@@ -19,6 +19,8 @@ namespace NewPracticBD
     /// </summary>
     public partial class AddUslugiPage : Window
     {
+
+        
         private uslugi _uslugi = new uslugi();
         public AddUslugiPage(uslugi selected)
         {
@@ -31,6 +33,7 @@ namespace NewPracticBD
             TimeCB.ItemsSource = shaurmaEntities.GetContext().time.ToList();
             SPriceCB.ItemsSource = shaurmaEntities.GetContext().sprice.ToList();
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -59,8 +62,6 @@ namespace NewPracticBD
             {
                 shaurmaEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
-                OsnovaPage wd = new OsnovaPage();
-                wd.Show();
                 this.Close();
             }
             catch (Exception ex)
