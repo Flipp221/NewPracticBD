@@ -62,7 +62,6 @@ namespace NewPracticBD
                 OsnovaPage wd = new OsnovaPage();
                 wd.Show();
                 this.Close();
-
             }
             catch (Exception ex)
             {

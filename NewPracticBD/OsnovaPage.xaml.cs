@@ -83,6 +83,14 @@ namespace NewPracticBD
             uslugithTB.Visibility = Visibility.Hidden;
             UslugiOTB.Visibility = Visibility.Hidden;
             UslugiTTB.Visibility = Visibility.Hidden;
+            RamSklad.Visibility = Visibility.Hidden;
+            GridSklad.Visibility = Visibility.Hidden;
+            Lavash.Visibility = Visibility.Hidden;
+            Luck.Visibility = Visibility.Hidden;
+            Myaso.Visibility = Visibility.Hidden;
+            Ogurci.Visibility = Visibility.Hidden;
+            Pomidori.Visibility = Visibility.Hidden;
+            Sosiska.Visibility = Visibility.Hidden;
         }
         private void Fillipp()
         {
@@ -111,6 +119,14 @@ namespace NewPracticBD
             uslugithTB.Visibility = Visibility.Hidden;
             UslugiOTB.Visibility = Visibility.Hidden;
             UslugiTTB.Visibility = Visibility.Hidden;
+            RamSklad.Visibility = Visibility.Hidden;
+            GridSklad.Visibility = Visibility.Hidden;
+            Lavash.Visibility = Visibility.Hidden;
+            Luck.Visibility = Visibility.Hidden;
+            Myaso.Visibility = Visibility.Hidden;
+            Ogurci.Visibility = Visibility.Hidden;
+            Pomidori.Visibility = Visibility.Hidden;
+            Sosiska.Visibility = Visibility.Hidden;
         }
         private void Mouse_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -118,6 +134,7 @@ namespace NewPracticBD
             {
                 shaurmaEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(a => a.Reload());
                 DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
+                GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
             }
         }
 
@@ -148,6 +165,14 @@ namespace NewPracticBD
             glavphoto.Visibility = Visibility.Hidden;
             glavbTB.Visibility = Visibility.Hidden;
             glavTB.Visibility = Visibility.Hidden;
+            RamSklad.Visibility = Visibility.Hidden;
+            GridSklad.Visibility = Visibility.Hidden;
+            Lavash.Visibility = Visibility.Hidden;
+            Luck.Visibility = Visibility.Hidden;
+            Myaso.Visibility = Visibility.Hidden;
+            Ogurci.Visibility = Visibility.Hidden;
+            Pomidori.Visibility = Visibility.Hidden;
+            Sosiska.Visibility = Visibility.Hidden;
         }
 
         private void DobBtn_Click(object sender, RoutedEventArgs e)
@@ -199,6 +224,33 @@ namespace NewPracticBD
             AddUslugiPage page = new AddUslugiPage((sender as Button).DataContext as uslugi);
             page.Show();
             this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Lavash.Visibility = Visibility.Visible;
+            Luck.Visibility = Visibility.Visible;
+            Myaso.Visibility = Visibility.Visible;
+            Ogurci.Visibility = Visibility.Visible;
+            Pomidori.Visibility = Visibility.Visible;
+            Sosiska.Visibility = Visibility.Visible;
+            RamSklad.Visibility = Visibility.Visible;
+            GridSklad.Visibility = Visibility.Visible;
+            DeleteDtn.Visibility = Visibility.Hidden;
+            DobBtn.Visibility = Visibility.Hidden;
+            glavphoto.Visibility = Visibility.Hidden;
+            glavbTB.Visibility = Visibility.Hidden;
+            glavTB.Visibility = Visibility.Hidden;
+            dan.Visibility = Visibility.Hidden;
+            name.Visibility = Visibility.Hidden;
+            fam.Visibility = Visibility.Hidden;
+            mail.Visibility = Visibility.Hidden;
+            phone.Visibility = Visibility.Hidden;
+            DGridKatalog.Visibility = Visibility.Hidden;
+            RamBTN.Visibility = Visibility.Hidden;
+            uslugithTB.Visibility = Visibility.Hidden;
+            UslugiOTB.Visibility = Visibility.Hidden;
+            UslugiTTB.Visibility = Visibility.Hidden;
         }
     }
 }

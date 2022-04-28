@@ -38,7 +38,7 @@
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Photo/menu.png" Height="25" VerticalAlignment="Center"/>
-                            <Button Content="Меню" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="77" Height="36" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"  FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                            <Button Content="Меню" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="77" Height="36" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"  FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Click="Button_Click_3"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="40">
@@ -143,6 +143,30 @@
                     <TextBlock
                         Text="Удалить услугу" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
+            </Grid>
+            <DataGrid Visibility="Hidden" x:Name="GridSklad" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,375,10,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding lavash.kolich}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Luck.kolich}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding myasko.kolich}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding ogurci.kolich}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding pomidori.kolich}" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding sosiska.kolich}" Width="*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Width="500">
+                <Button x:Name="RamSklad" Visibility="Hidden"
+    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+    materialDesign:ButtonAssist.CornerRadius="25 25 0 0"
+    ToolTip="MaterialDesignRaisedAccentButton with Round Top Corners"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="0,374,-138,44">
+                </Button>
+                <TextBlock x:Name="Lavash" HorizontalAlignment="Left" Margin="10,377,0,0" TextWrapping="Wrap" FontSize="16" Text="Лаваш" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBlock x:Name="Luck" Margin="117,377,0,0" TextWrapping="Wrap" FontSize="16" Text="Лук" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBlock x:Name="Myaso" HorizontalAlignment="Left" Margin="217,377,0,0" TextWrapping="Wrap" FontSize="16" Text="Мясо" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBlock x:Name="Ogurci" Margin="310,377,0,0" TextWrapping="Wrap" FontSize="16" Text="Огурцы" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" Height="22"/>
+                <TextBlock x:Name="Pomidori" Margin="410,377,0,0" TextWrapping="Wrap" FontSize="16" Text="Помидоры" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBlock x:Name="Sosiska" Margin="535,377,-118,0" TextWrapping="Wrap" FontSize="16" Text="Сосиска" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" Height="22"/>
             </Grid>
         </Grid>
     </Grid>
