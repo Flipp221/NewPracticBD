@@ -169,5 +169,15 @@
                 <TextBlock x:Name="Sosiska" Margin="535,377,-118,0" TextWrapping="Wrap" FontSize="16" Text="Сосиска" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontWeight="Bold" Height="22"/>
             </Grid>
         </Grid>
+        <Image Source="Photo/shaurma.png" Margin="153,0,437,296" Width="210"></Image>
+        <Image Source="Photo/pizza.png" Margin="368,0,222,296" Width="210"></Image>
+        <Image Source="Photo/hot.png" Margin="583,0,7,296" Width="210"></Image>
+        <Image Source="Photo/priced.png" Margin="195,244,549,157" Width="40"></Image>
+        <Image Source="Photo/times.png" Margin="195,190,549,211" Width="40"></Image>
+        <Image Source="Photo/star.png" Margin="195,298,549,102" Width="40"></Image>
+        <TextBox x:Name="nameTBS" HorizontalAlignment="Left" FontSize="16" IsReadOnly="True" Height="29" Margin="190,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS"/>
+        <TextBox x:Name="nameTBP" HorizontalAlignment="Left" FontSize="16" IsReadOnly="True" Height="29" Margin="412,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS"/>
+        <TextBox x:Name="nameTBH" HorizontalAlignment="Left" FontSize="16" IsReadOnly="True" Height="29" Margin="644,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#89FFFFFF"/>
+
     </Grid>
 </Window>

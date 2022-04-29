@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -112,6 +113,7 @@ namespace NewPracticBD
             FamTB.Text = MainWindow.User.sname;
             MailTB.Text = MainWindow.User.email;
             PhoneTB.Text = MainWindow.User.phone;
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

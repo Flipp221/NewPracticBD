@@ -272,6 +272,12 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Photo\times.png" />
+    <Resource Include="Photo\star.png" />
+    <Resource Include="Photo\priced.png" />
+    <Resource Include="Photo\hot.png" />
+    <Resource Include="Photo\pizza.png" />
+    <Resource Include="Photo\shaurma.png" />
     <Resource Include="Photo\mail.png" />
     <Resource Include="Photo\person.png" />
     <Resource Include="Photo\phone.png" />

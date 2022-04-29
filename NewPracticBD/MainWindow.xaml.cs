@@ -21,6 +21,7 @@ namespace NewPracticBD
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static uslugi uslugi;
         public static shaurmaEntities db = new shaurmaEntities();
         public static number_user vhodUser;
         public static users User;
