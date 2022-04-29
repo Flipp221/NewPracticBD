@@ -104,6 +104,25 @@ namespace NewPracticBD
             Ogurci.Visibility = Visibility.Hidden;
             Pomidori.Visibility = Visibility.Hidden;
             Sosiska.Visibility = Visibility.Hidden;
+            StarsTB_Copy.Visibility = Visibility.Hidden;
+            StarsTB_Copy1.Visibility = Visibility.Hidden;
+            StarsTB.Visibility = Visibility.Hidden;
+            TimesTB_Copy.Visibility = Visibility.Hidden;
+            TimesTB_Copy1.Visibility = Visibility.Hidden;
+            TimesTB.Visibility = Visibility.Hidden;
+            PricedTB.Visibility = Visibility.Hidden;
+            PricedTB_Copy.Visibility = Visibility.Hidden;
+            PricedTB_Copy1.Visibility = Visibility.Hidden;
+            buyBTN_Copy.Visibility = Visibility.Hidden;
+            buyBTN_Copy1.Visibility = Visibility.Hidden;
+            nameTBH.Visibility = Visibility.Hidden;
+            nameTBP.Visibility = Visibility.Hidden;
+            nameTBS.Visibility = Visibility.Hidden;
+            hot.Visibility = Visibility.Hidden;
+            pizza.Visibility = Visibility.Hidden;
+            shaurma.Visibility = Visibility.Hidden;
+            Lavash.Visibility = Visibility.Hidden;
+            buyBTN.Visibility = Visibility.Hidden;
         }
         private void Fillipp()
         {
@@ -141,6 +160,25 @@ namespace NewPracticBD
             Ogurci.Visibility = Visibility.Hidden;
             Pomidori.Visibility = Visibility.Hidden;
             Sosiska.Visibility = Visibility.Hidden;
+            StarsTB_Copy.Visibility = Visibility.Hidden;
+            StarsTB_Copy1.Visibility = Visibility.Hidden;
+            StarsTB.Visibility = Visibility.Hidden;
+            TimesTB_Copy.Visibility = Visibility.Hidden;
+            TimesTB_Copy1.Visibility = Visibility.Hidden;
+            TimesTB.Visibility = Visibility.Hidden;
+            PricedTB.Visibility = Visibility.Hidden;
+            PricedTB_Copy.Visibility = Visibility.Hidden;
+            PricedTB_Copy1.Visibility = Visibility.Hidden;
+            buyBTN_Copy.Visibility = Visibility.Hidden;
+            buyBTN_Copy1.Visibility = Visibility.Hidden;
+            nameTBH.Visibility = Visibility.Hidden;
+            nameTBP.Visibility = Visibility.Hidden;
+            nameTBS.Visibility = Visibility.Hidden;
+            hot.Visibility = Visibility.Hidden;
+            pizza.Visibility = Visibility.Hidden;
+            shaurma.Visibility = Visibility.Hidden;
+            Lavash.Visibility = Visibility.Hidden;
+            buyBTN.Visibility = Visibility.Hidden;
         }
         private void Mouse_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -187,6 +225,25 @@ namespace NewPracticBD
             Ogurci.Visibility = Visibility.Hidden;
             Pomidori.Visibility = Visibility.Hidden;
             Sosiska.Visibility = Visibility.Hidden;
+            StarsTB_Copy.Visibility = Visibility.Hidden;
+            StarsTB_Copy1.Visibility = Visibility.Hidden;
+            StarsTB.Visibility = Visibility.Hidden;
+            TimesTB_Copy.Visibility = Visibility.Hidden;
+            TimesTB_Copy1.Visibility = Visibility.Hidden;
+            TimesTB.Visibility = Visibility.Hidden;
+            PricedTB.Visibility = Visibility.Hidden;
+            PricedTB_Copy.Visibility = Visibility.Hidden;
+            PricedTB_Copy1.Visibility = Visibility.Hidden;
+            buyBTN_Copy.Visibility = Visibility.Hidden;
+            buyBTN_Copy1.Visibility = Visibility.Hidden;
+            nameTBH.Visibility = Visibility.Hidden;
+            nameTBP.Visibility = Visibility.Hidden;
+            nameTBS.Visibility = Visibility.Hidden;
+            hot.Visibility = Visibility.Hidden;
+            pizza.Visibility = Visibility.Hidden;
+            shaurma.Visibility = Visibility.Hidden;
+            Lavash.Visibility = Visibility.Hidden;
+            buyBTN.Visibility = Visibility.Hidden;
         }
 
         private void DobBtn_Click(object sender, RoutedEventArgs e)
@@ -241,6 +298,24 @@ namespace NewPracticBD
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            StarsTB_Copy.Visibility = Visibility.Visible;
+            StarsTB_Copy1.Visibility = Visibility.Visible;
+            StarsTB.Visibility = Visibility.Visible;
+            TimesTB_Copy.Visibility = Visibility.Visible;
+            TimesTB_Copy1.Visibility = Visibility.Visible;
+            TimesTB.Visibility = Visibility.Visible;
+            PricedTB.Visibility = Visibility.Visible;
+            PricedTB_Copy.Visibility = Visibility.Visible;
+            PricedTB_Copy1.Visibility = Visibility.Visible;
+            buyBTN.Visibility = Visibility.Visible;
+            buyBTN_Copy.Visibility = Visibility.Visible;
+            buyBTN_Copy1.Visibility = Visibility.Visible;
+            nameTBH.Visibility = Visibility.Visible;
+            nameTBP.Visibility = Visibility.Visible;
+            nameTBS.Visibility = Visibility.Visible;
+            hot.Visibility = Visibility.Visible;
+            pizza.Visibility = Visibility.Visible;
+            shaurma.Visibility = Visibility.Visible;
             Lavash.Visibility = Visibility.Visible;
             Luck.Visibility = Visibility.Visible;
             Myaso.Visibility = Visibility.Visible;
