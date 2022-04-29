@@ -12,18 +12,18 @@ namespace NewPracticBD
     using System;
     using System.Collections.Generic;
     
-    public partial class uslugi
+    public partial class Star
     {
-        public int id_usluga { get; set; }
-        public string name { get; set; }
-        public int id_price { get; set; }
-        public int id_time { get; set; }
-        public int id_sprice { get; set; }
-        public Nullable<int> id_star { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Star()
+        {
+            this.uslugi = new HashSet<uslugi>();
+        }
     
-        public virtual price price { get; set; }
-        public virtual sprice sprice { get; set; }
-        public virtual time time { get; set; }
-        public virtual Star Star { get; set; }
+        public int id_star { get; set; }
+        public Nullable<int> name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<uslugi> uslugi { get; set; }
     }
 }

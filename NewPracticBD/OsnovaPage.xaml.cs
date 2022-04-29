@@ -265,5 +265,28 @@ namespace NewPracticBD
             UslugiOTB.Visibility = Visibility.Hidden;
             UslugiTTB.Visibility = Visibility.Hidden;
         }
+
+        private void buyBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var sklad = MainWindow.db.Sklad.FirstOrDefault();
+            try
+                {
+                MessageBox.Show("Спасибо за заказ!");
+                sklad.lavash.kolich -= 1;
+                MainWindow.db.Sklad.Add(sklad);
+                MainWindow.db.SaveChanges();
+                GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+            }
+            catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            
+        }
+
+        private void buyBTN_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

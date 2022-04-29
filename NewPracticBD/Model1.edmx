@@ -89,6 +89,13 @@
           <Property Name="id_sprice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Star">
+          <Key>
+            <PropertyRef Name="id_star" />
+          </Key>
+          <Property Name="id_star" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="int" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -126,6 +133,7 @@
           <Property Name="id_price" Type="int" Nullable="false" />
           <Property Name="id_time" Type="int" Nullable="false" />
           <Property Name="id_sprice" Type="int" Nullable="false" />
+          <Property Name="id_star" Type="int" />
         </EntityType>
         <Association Name="FK_number_user_users">
           <End Role="users" Type="Self.users" Multiplicity="0..1" />
@@ -247,6 +255,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_uslugi_Star">
+          <End Role="Star" Type="Self.Star" Multiplicity="0..1" />
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Star">
+              <PropertyRef Name="id_star" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_star" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_uslugi_time">
           <End Role="time" Type="Self.time" Multiplicity="1" />
           <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
@@ -302,6 +322,7 @@
           <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sosiska" EntityType="Self.sosiska" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sprice" EntityType="Self.sprice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Star" EntityType="Self.Star" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="time" EntityType="Self.time" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
@@ -344,6 +365,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_uslugi_sprice" Association="Self.FK_uslugi_sprice">
             <End Role="sprice" EntitySet="sprice" />
+            <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_uslugi_Star" Association="Self.FK_uslugi_Star">
+            <End Role="Star" EntitySet="Star" />
             <End Role="uslugi" EntitySet="uslugi" />
           </AssociationSet>
           <AssociationSet Name="FK_uslugi_time" Association="Self.FK_uslugi_time">
@@ -488,6 +513,8 @@
           <NavigationProperty Name="price" Relationship="shaurmaModel.FK_uslugi_price" FromRole="uslugi" ToRole="price" />
           <NavigationProperty Name="sprice" Relationship="shaurmaModel.FK_uslugi_sprice" FromRole="uslugi" ToRole="sprice" />
           <NavigationProperty Name="time" Relationship="shaurmaModel.FK_uslugi_time" FromRole="uslugi" ToRole="time" />
+          <Property Name="id_star" Type="Int32" />
+          <NavigationProperty Name="Star" Relationship="shaurmaModel.FK_uslugi_Star" FromRole="uslugi" ToRole="Star" />
         </EntityType>
         <EntityContainer Name="shaurmaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="lavash" EntityType="Self.lavash" />
@@ -579,6 +606,11 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Star" EntityType="shaurmaModel.Star" />
+          <AssociationSet Name="FK_uslugi_Star" Association="shaurmaModel.FK_uslugi_Star">
+            <End Role="Star" EntitySet="Star" />
+            <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_Sklad_lavash">
           <End Type="shaurmaModel.lavash" Role="lavash" Multiplicity="1" />
@@ -733,6 +765,26 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Star">
+          <Key>
+            <PropertyRef Name="id_star" />
+          </Key>
+          <Property Name="id_star" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="Int32" />
+          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_Star" FromRole="Star" ToRole="uslugi" />
+        </EntityType>
+        <Association Name="FK_uslugi_Star">
+          <End Type="shaurmaModel.Star" Role="Star" Multiplicity="0..1" />
+          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Star">
+              <PropertyRef Name="id_star" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_star" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -857,6 +909,7 @@
           <EntitySetMapping Name="uslugi">
             <EntityTypeMapping TypeName="shaurmaModel.uslugi">
               <MappingFragment StoreEntitySet="uslugi">
+                <ScalarProperty Name="id_star" ColumnName="id_star" />
                 <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id_price" ColumnName="id_price" />
@@ -900,6 +953,14 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище shaurmaModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище shaurmaModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Star">
+            <EntityTypeMapping TypeName="shaurmaModel.Star">
+              <MappingFragment StoreEntitySet="Star">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_star" ColumnName="id_star" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
