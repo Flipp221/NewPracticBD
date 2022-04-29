@@ -156,7 +156,7 @@
                         Text="Купить" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
             </Grid>
-            <DataGrid Visibility="Hidden" x:Name="GridSklad" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,375,10,0">
+            <DataGrid Visibility="Visible" x:Name="GridSklad" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,375,10,0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding lavash.kolich}" Width="*"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Luck.kolich}" Width="*"></DataGridTextColumn>

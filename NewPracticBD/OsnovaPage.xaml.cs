@@ -273,7 +273,6 @@ namespace NewPracticBD
                 {
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.lavash.kolich -= 1;
-                MainWindow.db.Sklad.Add(sklad);
                 MainWindow.db.SaveChanges();
                 GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
             }
