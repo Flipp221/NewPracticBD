@@ -384,8 +384,15 @@ namespace NewPracticBD
                 {
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.lavash.kolich -= 1;
+                sklad.Luck.kolich -= 1;
+                sklad.myasko.kolich -= 1;
+                sklad.ogurci.kolich -= 1;
+                sklad.pomidori.kolich -= 1;
                 MainWindow.db.SaveChanges();
                 GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+                OsnovaPage osnovaPage = new OsnovaPage();
+                osnovaPage.Show();
+                this.Close();
             }
             catch (Exception ex)
                 {
@@ -396,7 +403,45 @@ namespace NewPracticBD
 
         private void buyBTN_Copy_Click(object sender, RoutedEventArgs e)
         {
+            var sklad = MainWindow.db.Sklad.FirstOrDefault();
+            try
+            {
+                MessageBox.Show("Спасибо за заказ!");
+                sklad.myasko.kolich -= 1;
+                sklad.ogurci.kolich -= 1;
+                sklad.pomidori.kolich -= 1;
+                MainWindow.db.SaveChanges();
+                GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+                OsnovaPage osnovaPage = new OsnovaPage();
+                osnovaPage.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
 
+        private void buyBTN_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            var sklad = MainWindow.db.Sklad.FirstOrDefault();
+            try
+            {
+                MessageBox.Show("Спасибо за заказ!");
+                sklad.Luck.kolich -= 1;
+                sklad.ogurci.kolich -= 1;
+                sklad.pomidori.kolich -= 1;
+                sklad.sosiska.kolich -= 1;
+                MainWindow.db.SaveChanges();
+                GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+                OsnovaPage osnovaPage = new OsnovaPage();
+                osnovaPage.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

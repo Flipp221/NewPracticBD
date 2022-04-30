@@ -144,13 +144,13 @@
                         Text="Удалить услугу" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
                 <TextBox x:Name="TimesTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="15 мин" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                <TextBox x:Name="PricedTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="130 руб" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                <TextBox x:Name="StarsTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="4.9" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBox x:Name="PricedTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="90 руб" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBox x:Name="StarsTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="4.4" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <Button x:Name="buyBTN_Copy1" Visibility="Hidden"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     materialDesign:ButtonAssist.CornerRadius="25"
                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="641,306,54,112" Background="#C4C4C4" BorderBrush="#FFC4C4C4">
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="641,306,54,112" Background="#C4C4C4" BorderBrush="#FFC4C4C4" Click="buyBTN_Copy1_Click">
                     <TextBlock
                         Text="Купить" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
@@ -183,14 +183,14 @@
                 <TextBox x:Name="StarsTB" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="4.9" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="98,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <Image x:Name="www" Visibility="Hidden" Source="Photo/times.png" Margin="261,189,199,229" Width="40"/>
                 <Image x:Name="sss" Visibility="Hidden" Source="Photo/star.png" Margin="261,268,199,148"/>
-                <TextBox x:Name="TimesTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="15 мин" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="306,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                <TextBox x:Name="PricedTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="130 руб" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="306,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                <TextBox x:Name="StarsTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="4.9" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="310,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBox x:Name="TimesTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="25 мин" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="306,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBox x:Name="PricedTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="100 руб" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="306,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <TextBox x:Name="StarsTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="5" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="310,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <Button x:Name="buyBTN_Copy" Visibility="Hidden"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     materialDesign:ButtonAssist.CornerRadius="25"
                     ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="272,307,123,111" Background="#C4C4C4" BorderBrush="#FFC4C4C4" >
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="272,307,123,111" Background="#C4C4C4" BorderBrush="#FFC4C4C4" Click="buyBTN_Copy_Click">
                     <TextBlock
                         Text="Купить" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
