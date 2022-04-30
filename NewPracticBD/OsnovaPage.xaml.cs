@@ -123,6 +123,15 @@ namespace NewPracticBD
             shaurma.Visibility = Visibility.Hidden;
             Lavash.Visibility = Visibility.Hidden;
             buyBTN.Visibility = Visibility.Hidden;
+            four.Visibility = Visibility.Hidden;
+            twos.Visibility = Visibility.Hidden;
+            threes.Visibility = Visibility.Hidden;
+            ones.Visibility = Visibility.Hidden;
+            sss.Visibility = Visibility.Hidden;
+            www.Visibility = Visibility.Hidden;
+            oneq.Visibility = Visibility.Hidden;
+            twop.Visibility = Visibility.Hidden;
+            threep.Visibility = Visibility.Hidden;
         }
         private void Fillipp()
         {
@@ -179,6 +188,15 @@ namespace NewPracticBD
             shaurma.Visibility = Visibility.Hidden;
             Lavash.Visibility = Visibility.Hidden;
             buyBTN.Visibility = Visibility.Hidden;
+            four.Visibility = Visibility.Hidden;
+            twos.Visibility = Visibility.Hidden;
+            threes.Visibility = Visibility.Hidden;
+            ones.Visibility = Visibility.Hidden;
+            sss.Visibility = Visibility.Hidden;
+            www.Visibility = Visibility.Hidden;
+            oneq.Visibility = Visibility.Hidden;
+            twop.Visibility = Visibility.Hidden;
+            threep.Visibility = Visibility.Hidden;
         }
         private void Mouse_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -244,6 +262,15 @@ namespace NewPracticBD
             shaurma.Visibility = Visibility.Hidden;
             Lavash.Visibility = Visibility.Hidden;
             buyBTN.Visibility = Visibility.Hidden;
+            four.Visibility = Visibility.Hidden;
+            twos.Visibility = Visibility.Hidden;
+            threes.Visibility = Visibility.Hidden;
+            ones.Visibility = Visibility.Hidden;
+            sss.Visibility = Visibility.Hidden;
+            www.Visibility = Visibility.Hidden;
+            oneq.Visibility = Visibility.Hidden;
+            twop.Visibility = Visibility.Hidden;
+            threep.Visibility = Visibility.Hidden;
         }
 
         private void DobBtn_Click(object sender, RoutedEventArgs e)
@@ -298,6 +325,15 @@ namespace NewPracticBD
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            four.Visibility = Visibility.Visible;
+            twos.Visibility = Visibility.Visible;
+            threes.Visibility = Visibility.Visible;
+            ones.Visibility = Visibility.Visible;
+            sss.Visibility = Visibility.Visible;
+            www.Visibility = Visibility.Visible;
+            oneq.Visibility = Visibility.Visible;
+            twop.Visibility = Visibility.Visible;
+            threep.Visibility = Visibility.Visible;
             StarsTB_Copy.Visibility = Visibility.Visible;
             StarsTB_Copy1.Visibility = Visibility.Visible;
             StarsTB.Visibility = Visibility.Visible;

@@ -143,7 +143,6 @@
                     <TextBlock
                         Text="Удалить услугу" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
-                <Image Source="Photo/times.png" Margin="203,190,557,228" Width="40"/>
                 <TextBox x:Name="TimesTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="15 мин" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <TextBox x:Name="PricedTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="130 руб" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <TextBox x:Name="StarsTB_Copy1" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="4.9" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="681,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
@@ -182,8 +181,8 @@
                 <TextBox x:Name="TimesTB" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="15 мин" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="98,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <TextBox x:Name="PricedTB" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="130 руб" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="98,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <TextBox x:Name="StarsTB" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="4.9" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="98,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                <Image x:Name="www" Source="Photo/times.png" Margin="261,189,199,229" Width="40"/>
-                <Image x:Name="sss" Source="Photo/star.png" Margin="261,268,199,148"/>
+                <Image x:Name="www" Visibility="Hidden" Source="Photo/times.png" Margin="261,189,199,229" Width="40"/>
+                <Image x:Name="sss" Visibility="Hidden" Source="Photo/star.png" Margin="261,268,199,148"/>
                 <TextBox x:Name="TimesTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="15 мин" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="306,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <TextBox x:Name="PricedTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="130 руб" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="306,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                 <TextBox x:Name="StarsTB_Copy" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="4.9" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="310,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="39" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
@@ -195,15 +194,15 @@
                     <TextBlock
                         Text="Купить" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
-                <Image Source="Photo/star.png" Margin="491,268,-31,148"/>
+                <Image x:Name="four" Visibility="Hidden" Source="Photo/star.png" Margin="491,268,-31,148"/>
             </Grid>
         </Grid>
         <Image x:Name="shaurma" Visibility="Hidden" Source="Photo/shaurma.png" Margin="153,0,437,296" Width="210"></Image>
         <Image x:Name="pizza" Visibility="Hidden" Source="Photo/pizza.png" Margin="368,0,222,296" Width="210"></Image>
         <Image x:Name="hot" Visibility="Hidden" Source="Photo/hot.png" Margin="583,0,7,296" Width="210"></Image>
-        <Image x:Name="oneq" Source="Photo/priced.png" Margin="203,227,557,189" Width="40"></Image>
-        <Image x:Name="twop" Source="Photo/times.png" Margin="203,190,557,228" Width="40"></Image>
-        <Image x:Name="threep" Source="Photo/star.png" Margin="203,266,557,150"/>
+        <Image x:Name="oneq" Visibility="Hidden" Source="Photo/priced.png" Margin="203,227,557,189" Width="40"></Image>
+        <Image x:Name="twop" Visibility="Hidden" Source="Photo/times.png" Margin="203,190,557,228" Width="40"></Image>
+        <Image x:Name="threep" Visibility="Hidden" Source="Photo/star.png" Margin="203,266,557,150"/>
         <TextBox x:Name="nameTBS" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="Шаурма" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="203,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
         <TextBox x:Name="nameTBP" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="Пицца" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="431,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
         <TextBox x:Name="nameTBH" Visibility="Hidden" HorizontalAlignment="Left" FontSize="16" Text="Хот-Дог" TextAlignment="Center" IsReadOnly="True" Height="29" Margin="656,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" BorderBrush="#89FFFFFF" FontFamily="Comic Sans MS" FontWeight="Bold"/>
@@ -216,8 +215,8 @@
             <TextBlock
       Text="Купить" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
         </Button>
-        <Image x:Name="ones" Source="Photo/priced.png" Margin="412,227,348,189" Width="40"/>
-        <Image x:Name="twos" Source="Photo/times.png" Margin="642,190,118,228" Width="40"/>
-        <Image x:Name="threes" Source="Photo/priced.png" Margin="642,227,118,189" Width="40"/>
+        <Image x:Name="ones" Visibility="Hidden" Source="Photo/priced.png" Margin="412,227,348,189" Width="40"/>
+        <Image x:Name="twos" Visibility="Hidden" Source="Photo/times.png" Margin="642,190,118,228" Width="40"/>
+        <Image x:Name="threes" Visibility="Hidden" Source="Photo/priced.png" Margin="642,227,118,189" Width="40"/>
     </Grid>
 </Window>
