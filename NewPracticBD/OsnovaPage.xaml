@@ -32,7 +32,7 @@
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Photo/zakaz.png" Height="25" VerticalAlignment="Center"/>
-                            <Button Content="Мои заказы" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="117" Height="36" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                            <Button Content="Мои заказы" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="117" Height="36" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Click="Button_Click_5"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="40">
@@ -195,6 +195,7 @@
                         Text="Купить" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" />
                 </Button>
                 <Image x:Name="four" Visibility="Hidden" Source="Photo/star.png" Margin="491,268,-31,148"/>
+                <TextBlock x:Name="ZakaziTB" Visibility="Hidden" TextAlignment="Center" FontSize="18" IsEnabled="False" HorizontalAlignment="Left" Margin="40,24,0,0" TextWrapping="Wrap" Text="Новые заказы" VerticalAlignment="Top" Width="164" Height="36" FontFamily="Comic Sans MS" FontWeight="Bold"/>
             </Grid>
         </Grid>
         <Image x:Name="shaurma" Visibility="Hidden" Source="Photo/shaurma.png" Margin="153,0,437,296" Width="210"></Image>
@@ -218,5 +219,21 @@
         <Image x:Name="ones" Visibility="Hidden" Source="Photo/priced.png" Margin="412,227,348,189" Width="40"/>
         <Image x:Name="twos" Visibility="Hidden" Source="Photo/times.png" Margin="642,190,118,228" Width="40"/>
         <Image x:Name="threes" Visibility="Hidden" Source="Photo/priced.png" Margin="642,227,118,189" Width="40"/>
+        <DataGrid Visibility="Hidden" x:Name="GridZakazi" AutoGenerateColumns="False" IsReadOnly="True" Margin="155,55,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id_zakaza}" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding name}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding uslugi.name}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding price.name}" Width="80"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding time.name}" Width="80"></DataGridTextColumn>
+                <DataGridTemplateColumn x:Name="Prinyato" Visibility="Hidden" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Принять заказ" Background="LightGreen" Width="150" Click="Button_Click_4"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

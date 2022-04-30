@@ -132,6 +132,9 @@ namespace NewPracticBD
             oneq.Visibility = Visibility.Hidden;
             twop.Visibility = Visibility.Hidden;
             threep.Visibility = Visibility.Hidden;
+            ZakaziTB.Visibility = Visibility.Hidden;
+            GridZakazi.Visibility = Visibility.Hidden;
+            Prinyato.Visibility = Visibility.Hidden;
         }
         private void Fillipp()
         {
@@ -197,6 +200,9 @@ namespace NewPracticBD
             oneq.Visibility = Visibility.Hidden;
             twop.Visibility = Visibility.Hidden;
             threep.Visibility = Visibility.Hidden;
+            ZakaziTB.Visibility = Visibility.Hidden;
+            GridZakazi.Visibility = Visibility.Hidden;
+            Prinyato.Visibility = Visibility.Hidden;
         }
         private void Mouse_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -205,6 +211,7 @@ namespace NewPracticBD
                 shaurmaEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(a => a.Reload());
                 DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
                 GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+                GridZakazi.ItemsSource = shaurmaEntities.GetContext().Zakazi.ToList();
             }
         }
 
@@ -271,6 +278,9 @@ namespace NewPracticBD
             oneq.Visibility = Visibility.Hidden;
             twop.Visibility = Visibility.Hidden;
             threep.Visibility = Visibility.Hidden;
+            ZakaziTB.Visibility = Visibility.Hidden;
+            GridZakazi.Visibility = Visibility.Hidden;
+            Prinyato.Visibility = Visibility.Hidden;
         }
 
         private void DobBtn_Click(object sender, RoutedEventArgs e)
@@ -375,6 +385,9 @@ namespace NewPracticBD
             uslugithTB.Visibility = Visibility.Hidden;
             UslugiOTB.Visibility = Visibility.Hidden;
             UslugiTTB.Visibility = Visibility.Hidden;
+            ZakaziTB.Visibility = Visibility.Hidden;
+            GridZakazi.Visibility = Visibility.Hidden;
+            Prinyato.Visibility = Visibility.Hidden;
         }
 
         private void buyBTN_Click(object sender, RoutedEventArgs e)
@@ -382,6 +395,12 @@ namespace NewPracticBD
             var sklad = MainWindow.db.Sklad.FirstOrDefault();
             try
                 {
+                Zakazi zakazi = new Zakazi();
+                zakazi.name = "Заказ №1";
+                zakazi.id_usluga = 1;
+                zakazi.id_price = 6;
+                zakazi.id_time = 3;
+                MainWindow.db.Zakazi.Add(zakazi);
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.lavash.kolich -= 1;
                 sklad.Luck.kolich -= 1;
@@ -406,6 +425,12 @@ namespace NewPracticBD
             var sklad = MainWindow.db.Sklad.FirstOrDefault();
             try
             {
+                Zakazi zakazi = new Zakazi();
+                zakazi.name = "Заказ №2";
+                zakazi.id_usluga = 2;
+                zakazi.id_price = 3;
+                zakazi.id_time = 5;
+                MainWindow.db.Zakazi.Add(zakazi);
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.myasko.kolich -= 1;
                 sklad.ogurci.kolich -= 1;
@@ -427,6 +452,12 @@ namespace NewPracticBD
             var sklad = MainWindow.db.Sklad.FirstOrDefault();
             try
             {
+                Zakazi zakazi = new Zakazi();
+                zakazi.name = "Заказ №3";
+                zakazi.id_usluga = 3;
+                zakazi.id_price = 2;
+                zakazi.id_time = 3;
+                MainWindow.db.Zakazi.Add(zakazi);
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.Luck.kolich -= 1;
                 sklad.ogurci.kolich -= 1;
@@ -442,6 +473,82 @@ namespace NewPracticBD
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            var MousesForRemoving = GridZakazi.SelectedItems.Cast<Zakazi>().ToList();
+            {
+                try
+                {
+                    shaurmaEntities.GetContext().Zakazi.RemoveRange(MousesForRemoving);
+                    shaurmaEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Заказ принят!");
+
+                    GridZakazi.ItemsSource = shaurmaEntities.GetContext().Zakazi.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            ZakaziTB.Visibility = Visibility.Visible;
+            GridZakazi.Visibility = Visibility.Visible;
+            Prinyato.Visibility = Visibility.Visible;
+            four.Visibility = Visibility.Hidden;
+            twos.Visibility = Visibility.Hidden;
+            threes.Visibility = Visibility.Hidden;
+            ones.Visibility = Visibility.Hidden;
+            sss.Visibility = Visibility.Hidden;
+            www.Visibility = Visibility.Hidden;
+            oneq.Visibility = Visibility.Hidden;
+            twop.Visibility = Visibility.Hidden;
+            threep.Visibility = Visibility.Hidden;
+            StarsTB_Copy.Visibility = Visibility.Hidden;
+            StarsTB_Copy1.Visibility = Visibility.Hidden;
+            StarsTB.Visibility = Visibility.Hidden;
+            TimesTB_Copy.Visibility = Visibility.Hidden;
+            TimesTB_Copy1.Visibility = Visibility.Hidden;
+            TimesTB.Visibility = Visibility.Hidden;
+            PricedTB.Visibility = Visibility.Hidden;
+            PricedTB_Copy.Visibility = Visibility.Hidden;
+            PricedTB_Copy1.Visibility = Visibility.Hidden;
+            buyBTN.Visibility = Visibility.Hidden;
+            buyBTN_Copy.Visibility = Visibility.Hidden;
+            buyBTN_Copy1.Visibility = Visibility.Hidden;
+            nameTBH.Visibility = Visibility.Hidden;
+            nameTBP.Visibility = Visibility.Hidden;
+            nameTBS.Visibility = Visibility.Hidden;
+            hot.Visibility = Visibility.Hidden;
+            pizza.Visibility = Visibility.Hidden;
+            shaurma.Visibility = Visibility.Hidden;
+            Lavash.Visibility = Visibility.Hidden;
+            Luck.Visibility = Visibility.Hidden;
+            Myaso.Visibility = Visibility.Hidden;
+            Ogurci.Visibility = Visibility.Hidden;
+            Pomidori.Visibility = Visibility.Hidden;
+            Sosiska.Visibility = Visibility.Hidden;
+            RamSklad.Visibility = Visibility.Hidden;
+            GridSklad.Visibility = Visibility.Hidden;
+            DeleteDtn.Visibility = Visibility.Hidden;
+            DobBtn.Visibility = Visibility.Hidden;
+            glavphoto.Visibility = Visibility.Hidden;
+            glavbTB.Visibility = Visibility.Hidden;
+            glavTB.Visibility = Visibility.Hidden;
+            dan.Visibility = Visibility.Hidden;
+            name.Visibility = Visibility.Hidden;
+            fam.Visibility = Visibility.Hidden;
+            mail.Visibility = Visibility.Hidden;
+            phone.Visibility = Visibility.Hidden;
+            DGridKatalog.Visibility = Visibility.Hidden;
+            RamBTN.Visibility = Visibility.Hidden;
+            uslugithTB.Visibility = Visibility.Hidden;
+            UslugiOTB.Visibility = Visibility.Hidden;
+            UslugiTTB.Visibility = Visibility.Hidden;
         }
     }
 }

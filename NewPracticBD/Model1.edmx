@@ -135,6 +135,16 @@
           <Property Name="id_sprice" Type="int" Nullable="false" />
           <Property Name="id_star" Type="int" />
         </EntityType>
+        <EntityType Name="Zakazi">
+          <Key>
+            <PropertyRef Name="id_zakaza" />
+          </Key>
+          <Property Name="id_zakaza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="id_usluga" Type="int" />
+          <Property Name="id_price" Type="int" />
+          <Property Name="id_time" Type="int" />
+        </EntityType>
         <Association Name="FK_number_user_users">
           <End Role="users" Type="Self.users" Multiplicity="0..1" />
           <End Role="number_user" Type="Self.number_user" Multiplicity="*" />
@@ -279,6 +289,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Zakazi_price">
+          <End Role="price" Type="Self.price" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="price">
+              <PropertyRef Name="id_price" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_price" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_time">
+          <End Role="time" Type="Self.time" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="time">
+              <PropertyRef Name="id_time" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_uslugi">
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uslugi">
+              <PropertyRef Name="id_usluga" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_usluga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -327,6 +373,7 @@
           <EntitySet Name="time" EntityType="Self.time" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uslugi" EntityType="Self.uslugi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zakazi" EntityType="Self.Zakazi" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_number_user_users" Association="Self.FK_number_user_users">
             <End Role="users" EntitySet="users" />
             <End Role="number_user" EntitySet="number_user" />
@@ -374,6 +421,18 @@
           <AssociationSet Name="FK_uslugi_time" Association="Self.FK_uslugi_time">
             <End Role="time" EntitySet="time" />
             <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_price" Association="Self.FK_Zakazi_price">
+            <End Role="price" EntitySet="price" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_time" Association="Self.FK_Zakazi_time">
+            <End Role="time" EntitySet="time" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_uslugi" Association="Self.FK_Zakazi_uslugi">
+            <End Role="uslugi" EntitySet="uslugi" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -436,6 +495,7 @@
           <Property Name="id_price" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_price" FromRole="price" ToRole="uslugi" />
+          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_price" FromRole="price" ToRole="Zakazi" />
         </EntityType>
         <EntityType Name="roll">
           <Key>
@@ -487,6 +547,7 @@
           <Property Name="id_time" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_time" FromRole="time" ToRole="uslugi" />
+          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_time" FromRole="time" ToRole="Zakazi" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -515,6 +576,7 @@
           <NavigationProperty Name="time" Relationship="shaurmaModel.FK_uslugi_time" FromRole="uslugi" ToRole="time" />
           <Property Name="id_star" Type="Int32" />
           <NavigationProperty Name="Star" Relationship="shaurmaModel.FK_uslugi_Star" FromRole="uslugi" ToRole="Star" />
+          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_uslugi" FromRole="uslugi" ToRole="Zakazi" />
         </EntityType>
         <EntityContainer Name="shaurmaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="lavash" EntityType="Self.lavash" />
@@ -610,6 +672,19 @@
           <AssociationSet Name="FK_uslugi_Star" Association="shaurmaModel.FK_uslugi_Star">
             <End Role="Star" EntitySet="Star" />
             <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
+          <EntitySet Name="Zakazi" EntityType="shaurmaModel.Zakazi" />
+          <AssociationSet Name="FK_Zakazi_price" Association="shaurmaModel.FK_Zakazi_price">
+            <End Role="price" EntitySet="price" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_time" Association="shaurmaModel.FK_Zakazi_time">
+            <End Role="time" EntitySet="time" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_uslugi" Association="shaurmaModel.FK_Zakazi_uslugi">
+            <End Role="uslugi" EntitySet="uslugi" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
           </AssociationSet>
         </EntityContainer>
         <Association Name="FK_Sklad_lavash">
@@ -782,6 +857,55 @@
             </Principal>
             <Dependent Role="uslugi">
               <PropertyRef Name="id_star" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Zakazi">
+          <Key>
+            <PropertyRef Name="id_zakaza" />
+          </Key>
+          <Property Name="id_zakaza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usluga" Type="Int32" />
+          <Property Name="id_price" Type="Int32" />
+          <Property Name="id_time" Type="Int32" />
+          <NavigationProperty Name="price" Relationship="shaurmaModel.FK_Zakazi_price" FromRole="Zakazi" ToRole="price" />
+          <NavigationProperty Name="time" Relationship="shaurmaModel.FK_Zakazi_time" FromRole="Zakazi" ToRole="time" />
+          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_Zakazi_uslugi" FromRole="Zakazi" ToRole="uslugi" />
+        </EntityType>
+        <Association Name="FK_Zakazi_price">
+          <End Type="shaurmaModel.price" Role="price" Multiplicity="0..1" />
+          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="price">
+              <PropertyRef Name="id_price" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_price" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_time">
+          <End Type="shaurmaModel.time" Role="time" Multiplicity="0..1" />
+          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="time">
+              <PropertyRef Name="id_time" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_uslugi">
+          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="0..1" />
+          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uslugi">
+              <PropertyRef Name="id_usluga" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_usluga" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -958,6 +1082,17 @@
               <MappingFragment StoreEntitySet="Star">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id_star" ColumnName="id_star" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zakazi">
+            <EntityTypeMapping TypeName="shaurmaModel.Zakazi">
+              <MappingFragment StoreEntitySet="Zakazi">
+                <ScalarProperty Name="id_time" ColumnName="id_time" />
+                <ScalarProperty Name="id_price" ColumnName="id_price" />
+                <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_zakaza" ColumnName="id_zakaza" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

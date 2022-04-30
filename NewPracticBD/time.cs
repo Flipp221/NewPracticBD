@@ -18,6 +18,7 @@ namespace NewPracticBD
         public time()
         {
             this.uslugi = new HashSet<uslugi>();
+            this.Zakazi = new HashSet<Zakazi>();
         }
     
         public int id_time { get; set; }
@@ -25,5 +26,7 @@ namespace NewPracticBD
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<uslugi> uslugi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zakazi> Zakazi { get; set; }
     }
 }
