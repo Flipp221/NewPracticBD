@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace NewPracticBD
 {
@@ -19,8 +14,7 @@ namespace NewPracticBD
     /// </summary>
     public partial class AddUslugiPage : Window
     {
-
-        
+        OpenFileDialog ofdImage1 = new OpenFileDialog();
         private uslugi _uslugi = new uslugi();
         public AddUslugiPage(uslugi selected)
         {
@@ -56,6 +50,7 @@ namespace NewPracticBD
             }
             if (_uslugi.id_usluga == 0)
             {
+                _uslugi.image = File.ReadAllBytes(ofdImage1.FileName);
                 shaurmaEntities.GetContext().uslugi.Add(_uslugi);
             }
             try
@@ -67,6 +62,22 @@ namespace NewPracticBD
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofdImage = new OpenFileDialog();
+            ofdImage.Filter = "Image files|*.bmp;*.jpg;*.png|All files|*.*";
+            ofdImage.FilterIndex = 1;
+            if (ofdImage.ShowDialog() == true)
+            {
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri(ofdImage.FileName);
+                image.EndInit();
+                ofdImage1 = ofdImage;
+                img.Source = image;
             }
         }
     }

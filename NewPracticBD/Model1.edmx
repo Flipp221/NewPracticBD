@@ -134,6 +134,7 @@
           <Property Name="id_time" Type="int" Nullable="false" />
           <Property Name="id_sprice" Type="int" Nullable="false" />
           <Property Name="id_star" Type="int" />
+          <Property Name="image" Type="image" />
         </EntityType>
         <EntityType Name="Zakazi">
           <Key>
@@ -577,6 +578,7 @@
           <Property Name="id_star" Type="Int32" />
           <NavigationProperty Name="Star" Relationship="shaurmaModel.FK_uslugi_Star" FromRole="uslugi" ToRole="Star" />
           <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_uslugi" FromRole="uslugi" ToRole="Zakazi" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityContainer Name="shaurmaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="lavash" EntityType="Self.lavash" />
@@ -1033,6 +1035,7 @@
           <EntitySetMapping Name="uslugi">
             <EntityTypeMapping TypeName="shaurmaModel.uslugi">
               <MappingFragment StoreEntitySet="uslugi">
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id_star" ColumnName="id_star" />
                 <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
                 <ScalarProperty Name="name" ColumnName="name" />

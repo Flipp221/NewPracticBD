@@ -100,11 +100,18 @@
         <Grid>
             <DataGrid Visibility="Hidden" x:Name="DGridKatalog" AutoGenerateColumns="False" IsReadOnly="True" Margin="150,128,10,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding name}" Width="140"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding price.name}" Width="85"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding time.name}" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding sprice.name}" Width="60"></DataGridTextColumn>
-                    <DataGridTemplateColumn x:Name="RedBtn" Width="*">
+                    <DataGridTextColumn Binding="{Binding name}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding price.name}" Width="80"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding time.name}" Width="80"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding sprice.name}" Width="80"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Height="50" Width="100" Source="{Binding image}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="RedBtn" Width="200">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Редактировать" Width="150" Click="Red_Click"/>

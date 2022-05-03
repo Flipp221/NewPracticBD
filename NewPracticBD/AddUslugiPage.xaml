@@ -43,8 +43,17 @@
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
     materialDesign:ButtonProgressAssist.IsIndeterminate="True"
     Content="Сохранить"
-    Margin="-6,234,10,184"
+    Margin="0,357,4,61"
     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Button_Click" />
         </Grid>
+        <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="10,233,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button
+            Style="{StaticResource MaterialDesignOutlinedButton}"
+            materialDesign:ButtonProgressAssist.Value="-1"
+            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+            Content="Загрузить"
+            Margin="115,260,24,158"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="Button_Click_1"/>
     </Grid>
 </Window>

@@ -26,6 +26,7 @@ namespace NewPracticBD
         public int id_time { get; set; }
         public int id_sprice { get; set; }
         public Nullable<int> id_star { get; set; }
+        public byte[] image { get; set; }
     
         public virtual price price { get; set; }
         public virtual sprice sprice { get; set; }
