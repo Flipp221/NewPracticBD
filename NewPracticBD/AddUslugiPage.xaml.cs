@@ -50,8 +50,10 @@ namespace NewPracticBD
             }
             if (_uslugi.id_usluga == 0)
             {
-                _uslugi.image = File.ReadAllBytes(ofdImage1.FileName);
+                images images = new images();
+                images.image = File.ReadAllBytes(ofdImage1.FileName);
                 shaurmaEntities.GetContext().uslugi.Add(_uslugi);
+                shaurmaEntities.GetContext().images.Add(images);
             }
             try
             {

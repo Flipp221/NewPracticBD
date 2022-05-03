@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище shaurmaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="images">
+          <Key>
+            <PropertyRef Name="id_image" />
+          </Key>
+          <Property Name="id_image" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="image" />
+        </EntityType>
         <EntityType Name="lavash">
           <Key>
             <PropertyRef Name="id_lavash" />
@@ -134,7 +141,7 @@
           <Property Name="id_time" Type="int" Nullable="false" />
           <Property Name="id_sprice" Type="int" Nullable="false" />
           <Property Name="id_star" Type="int" />
-          <Property Name="image" Type="image" />
+          <Property Name="id_image" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Zakazi">
           <Key>
@@ -145,6 +152,7 @@
           <Property Name="id_usluga" Type="int" />
           <Property Name="id_price" Type="int" />
           <Property Name="id_time" Type="int" />
+          <Property Name="id_image" Type="int" />
         </EntityType>
         <Association Name="FK_number_user_users">
           <End Role="users" Type="Self.users" Multiplicity="0..1" />
@@ -242,6 +250,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_uslugi_images">
+          <End Role="images" Type="Self.images" Multiplicity="1" />
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="images">
+              <PropertyRef Name="id_image" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_uslugi_price">
           <End Role="price" Type="Self.price" Multiplicity="1" />
           <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
@@ -287,6 +307,18 @@
             </Principal>
             <Dependent Role="uslugi">
               <PropertyRef Name="id_time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_images">
+          <End Role="images" Type="Self.images" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="images">
+              <PropertyRef Name="id_image" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_image" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -358,6 +390,7 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище shaurmaModelContainer">
+          <EntitySet Name="images" EntityType="Self.images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lavash" EntityType="Self.lavash" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Luck" EntityType="Self.Luck" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="myasko" EntityType="Self.myasko" Schema="dbo" store:Type="Tables" />
@@ -407,6 +440,10 @@
             <End Role="roll" EntitySet="roll" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
+          <AssociationSet Name="FK_uslugi_images" Association="Self.FK_uslugi_images">
+            <End Role="images" EntitySet="images" />
+            <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
           <AssociationSet Name="FK_uslugi_price" Association="Self.FK_uslugi_price">
             <End Role="price" EntitySet="price" />
             <End Role="uslugi" EntitySet="uslugi" />
@@ -422,6 +459,10 @@
           <AssociationSet Name="FK_uslugi_time" Association="Self.FK_uslugi_time">
             <End Role="time" EntitySet="time" />
             <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_images" Association="Self.FK_Zakazi_images">
+            <End Role="images" EntitySet="images" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
           </AssociationSet>
           <AssociationSet Name="FK_Zakazi_price" Association="Self.FK_Zakazi_price">
             <End Role="price" EntitySet="price" />
@@ -578,7 +619,8 @@
           <Property Name="id_star" Type="Int32" />
           <NavigationProperty Name="Star" Relationship="shaurmaModel.FK_uslugi_Star" FromRole="uslugi" ToRole="Star" />
           <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_uslugi" FromRole="uslugi" ToRole="Zakazi" />
-          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_image" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="images" Relationship="shaurmaModel.FK_uslugi_images" FromRole="uslugi" ToRole="images" />
         </EntityType>
         <EntityContainer Name="shaurmaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="lavash" EntityType="Self.lavash" />
@@ -686,6 +728,15 @@
           </AssociationSet>
           <AssociationSet Name="FK_Zakazi_uslugi" Association="shaurmaModel.FK_Zakazi_uslugi">
             <End Role="uslugi" EntitySet="uslugi" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
+          </AssociationSet>
+          <EntitySet Name="images" EntityType="shaurmaModel.images" />
+          <AssociationSet Name="FK_uslugi_images" Association="shaurmaModel.FK_uslugi_images">
+            <End Role="images" EntitySet="images" />
+            <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_images" Association="shaurmaModel.FK_Zakazi_images">
+            <End Role="images" EntitySet="images" />
             <End Role="Zakazi" EntitySet="Zakazi" />
           </AssociationSet>
         </EntityContainer>
@@ -874,6 +925,8 @@
           <NavigationProperty Name="price" Relationship="shaurmaModel.FK_Zakazi_price" FromRole="Zakazi" ToRole="price" />
           <NavigationProperty Name="time" Relationship="shaurmaModel.FK_Zakazi_time" FromRole="Zakazi" ToRole="time" />
           <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_Zakazi_uslugi" FromRole="Zakazi" ToRole="uslugi" />
+          <Property Name="id_image" Type="Int32" />
+          <NavigationProperty Name="images" Relationship="shaurmaModel.FK_Zakazi_images" FromRole="Zakazi" ToRole="images" />
         </EntityType>
         <Association Name="FK_Zakazi_price">
           <End Type="shaurmaModel.price" Role="price" Multiplicity="0..1" />
@@ -908,6 +961,39 @@
             </Principal>
             <Dependent Role="Zakazi">
               <PropertyRef Name="id_usluga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="images">
+          <Key>
+            <PropertyRef Name="id_image" />
+          </Key>
+          <Property Name="id_image" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_images" FromRole="images" ToRole="uslugi" />
+          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_images" FromRole="images" ToRole="Zakazi" />
+        </EntityType>
+        <Association Name="FK_uslugi_images">
+          <End Type="shaurmaModel.images" Role="images" Multiplicity="1" />
+          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="images">
+              <PropertyRef Name="id_image" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_images">
+          <End Type="shaurmaModel.images" Role="images" Multiplicity="0..1" />
+          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="images">
+              <PropertyRef Name="id_image" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_image" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1035,7 +1121,7 @@
           <EntitySetMapping Name="uslugi">
             <EntityTypeMapping TypeName="shaurmaModel.uslugi">
               <MappingFragment StoreEntitySet="uslugi">
-                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="id_image" ColumnName="id_image" />
                 <ScalarProperty Name="id_star" ColumnName="id_star" />
                 <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1091,11 +1177,20 @@
           <EntitySetMapping Name="Zakazi">
             <EntityTypeMapping TypeName="shaurmaModel.Zakazi">
               <MappingFragment StoreEntitySet="Zakazi">
+                <ScalarProperty Name="id_image" ColumnName="id_image" />
                 <ScalarProperty Name="id_time" ColumnName="id_time" />
                 <ScalarProperty Name="id_price" ColumnName="id_price" />
                 <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id_zakaza" ColumnName="id_zakaza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="images">
+            <EntityTypeMapping TypeName="shaurmaModel.images">
+              <MappingFragment StoreEntitySet="images">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="id_image" ColumnName="id_image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

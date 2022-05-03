@@ -102,6 +102,9 @@
     <Compile Include="AddUslugiPage.xaml.cs">
       <DependentUpon>AddUslugiPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="images.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="lavash.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

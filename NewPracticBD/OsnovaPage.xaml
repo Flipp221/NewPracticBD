@@ -107,7 +107,7 @@
                     <DataGridTemplateColumn Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Height="50" Width="100" Source="{Binding image}"  />
+                                <Image Height="50" Width="100" Source="{Binding images.image}"  />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -231,12 +231,19 @@
                 <DataGridTextColumn Binding="{Binding id_zakaza}" Width="50"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding name}" Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding uslugi.name}" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding price.name}" Width="80"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding time.name}" Width="80"></DataGridTextColumn>
-                <DataGridTemplateColumn x:Name="Prinyato" Visibility="Hidden" Width="*">
+                <DataGridTextColumn Binding="{Binding price.name}" Width="60"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding time.name}" Width="60"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Принять заказ" Background="LightGreen" Width="150" Click="Button_Click_4"/>
+                            <Image Height="50" Width="100" Source="{Binding images.image}"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="Prinyato" Visibility="Hidden" Width="170">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Принять заказ" Background="LightGreen" Width="130" Click="Button_Click_4"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

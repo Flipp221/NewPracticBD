@@ -37,6 +37,9 @@
         <AssociationConnector Association="shaurmaModel.FK_Zakazi_price" />
         <AssociationConnector Association="shaurmaModel.FK_Zakazi_time" />
         <AssociationConnector Association="shaurmaModel.FK_Zakazi_uslugi" />
+        <EntityTypeShape EntityType="shaurmaModel.images" Width="1.5" PointX="0.75" PointY="9.5" />
+        <AssociationConnector Association="shaurmaModel.FK_uslugi_images" />
+        <AssociationConnector Association="shaurmaModel.FK_Zakazi_images" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

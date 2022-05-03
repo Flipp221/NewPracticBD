@@ -397,9 +397,10 @@ namespace NewPracticBD
                 {
                 Zakazi zakazi = new Zakazi();
                 zakazi.name = "Заказ №1";
-                zakazi.id_usluga = 1;
+                zakazi.id_usluga = 4;
                 zakazi.id_price = 6;
                 zakazi.id_time = 3;
+                zakazi.id_image = 1;
                 MainWindow.db.Zakazi.Add(zakazi);
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.lavash.kolich -= 1;
@@ -427,9 +428,10 @@ namespace NewPracticBD
             {
                 Zakazi zakazi = new Zakazi();
                 zakazi.name = "Заказ №2";
-                zakazi.id_usluga = 2;
+                zakazi.id_usluga = 5;
                 zakazi.id_price = 3;
                 zakazi.id_time = 5;
+                zakazi.id_image = 2;
                 MainWindow.db.Zakazi.Add(zakazi);
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.myasko.kolich -= 1;
@@ -454,9 +456,10 @@ namespace NewPracticBD
             {
                 Zakazi zakazi = new Zakazi();
                 zakazi.name = "Заказ №3";
-                zakazi.id_usluga = 3;
+                zakazi.id_usluga = 6;
                 zakazi.id_price = 2;
                 zakazi.id_time = 3;
+                zakazi.id_image = 3;
                 MainWindow.db.Zakazi.Add(zakazi);
                 MessageBox.Show("Спасибо за заказ!");
                 sklad.Luck.kolich -= 1;

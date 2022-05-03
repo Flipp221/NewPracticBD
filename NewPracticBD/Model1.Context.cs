@@ -51,6 +51,7 @@ namespace NewPracticBD
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Star> Star { get; set; }
         public virtual DbSet<Zakazi> Zakazi { get; set; }
+        public virtual DbSet<images> images { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
