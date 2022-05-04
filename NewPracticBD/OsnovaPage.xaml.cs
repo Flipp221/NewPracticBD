@@ -293,12 +293,16 @@ namespace NewPracticBD
         {
             if (MainWindow.vhodUser.id_user != 2)
             {
+                GridSklad.Visibility = Visibility.Hidden;
+                RamSklad.Visibility = Visibility.Hidden;
                 DobBtn.Visibility = Visibility.Hidden;
                 DeleteDtn.Visibility = Visibility.Hidden;
                 RedBtn.Visibility = Visibility.Hidden;
             }
             else
             {
+                GridSklad.Visibility = Visibility.Hidden;
+                RamSklad.Visibility = Visibility.Hidden;
                 RedBtn.Visibility = Visibility.Hidden;
                 DobBtn.Visibility = Visibility.Hidden;
                 DeleteDtn.Visibility = Visibility.Hidden;
@@ -335,6 +339,16 @@ namespace NewPracticBD
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            if (MainWindow.vhodUser.id_user != 2)
+            {
+                GridSklad.Visibility = Visibility.Hidden;
+                RamSklad.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                GridSklad.Visibility = Visibility.Visible;
+                RamSklad.Visibility = Visibility.Visible;
+            }
             four.Visibility = Visibility.Visible;
             twos.Visibility = Visibility.Visible;
             threes.Visibility = Visibility.Visible;
@@ -368,8 +382,6 @@ namespace NewPracticBD
             Ogurci.Visibility = Visibility.Visible;
             Pomidori.Visibility = Visibility.Visible;
             Sosiska.Visibility = Visibility.Visible;
-            RamSklad.Visibility = Visibility.Visible;
-            GridSklad.Visibility = Visibility.Visible;
             DeleteDtn.Visibility = Visibility.Hidden;
             DobBtn.Visibility = Visibility.Hidden;
             glavphoto.Visibility = Visibility.Hidden;
