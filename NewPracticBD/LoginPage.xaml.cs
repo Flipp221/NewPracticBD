@@ -26,9 +26,17 @@ namespace NewPracticBD
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (name.Text == "")
+            bool check = false;
+            foreach (var item in MainWindow.db.users)
             {
-                MessageBox.Show("Введите все данные");
+                if (name.Text == item.name || mail.Text == item.email)
+                {
+                    check = true;
+                }
+            }
+            if (check == true)
+            {
+                MessageBox.Show("Такое имя или E-mail уже зарегестрированы");
             }
             else
             {
@@ -52,6 +60,7 @@ namespace NewPracticBD
                 catch
                 {
                     MessageBox.Show("Такое имя пользователя или логин уже существует");
+
                 }
                 MessageBox.Show("Успешно!");
                 MainWindow mainWindow = new MainWindow();
