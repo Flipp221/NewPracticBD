@@ -24,7 +24,7 @@ namespace NewPracticBD
         public static Zakazi zakazi;
         public static Sklad sklad;
         public static uslugi uslugi;
-        public static shaurmaEntities db = new shaurmaEntities();
+        public static Fili_CafeEntities db = new Fili_CafeEntities();
         public static number_user vhodUser;
         public static users User;
         DispatcherTimer timer;

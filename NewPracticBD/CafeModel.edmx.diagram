@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f3064acd01047cba18defb5ef347a8b" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.images" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.lavash" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Luck" Width="1.5" PointX="2.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.myasko" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.number_user" Width="1.5" PointX="12.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ogurci" Width="1.5" PointX="2.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.pomidori" Width="1.5" PointX="2.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.price" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.roll" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Sklad" Width="1.5" PointX="5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sosiska" Width="1.5" PointX="2.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sprice" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Star" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.time" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.users" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.uslugi" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Zakazi" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_uslugi_images" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Zakazi_images" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Sklad_lavash" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Sklad_Luck" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Sklad_myasko" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_number_user_users" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Sklad_ogurci" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Sklad_pomidori" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_uslugi_price" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Zakazi_price" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_users_roll" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Sklad_sosiska" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_uslugi_sprice" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_uslugi_Star" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_uslugi_time" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Zakazi_time" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Zakazi_uslugi" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

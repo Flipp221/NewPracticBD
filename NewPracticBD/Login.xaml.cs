@@ -48,7 +48,11 @@ namespace NewPracticBD
                                 wd.Show();
                                 this.Close();
                                 }
-                    }  
+                    }
+            if (MainWindow.vhodUser == null)
+            {
+                MessageBox.Show("Введите коректные данные");
+            }
         }
     }
 }

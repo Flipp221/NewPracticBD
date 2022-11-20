@@ -23,9 +23,9 @@ namespace NewPracticBD
                 _uslugi = selected;
 
             DataContext = _uslugi;
-            PriceCB.ItemsSource = shaurmaEntities.GetContext().price.ToList();
-            TimeCB.ItemsSource = shaurmaEntities.GetContext().time.ToList();
-            SPriceCB.ItemsSource = shaurmaEntities.GetContext().sprice.ToList();
+            PriceCB.ItemsSource = Fili_CafeEntities.GetContext().price.ToList();
+            TimeCB.ItemsSource = Fili_CafeEntities.GetContext().time.ToList();
+            SPriceCB.ItemsSource = Fili_CafeEntities.GetContext().sprice.ToList();
         }
 
 
@@ -52,12 +52,12 @@ namespace NewPracticBD
             {
                 images images = new images();
                 images.image = File.ReadAllBytes(ofdImage1.FileName);
-                shaurmaEntities.GetContext().uslugi.Add(_uslugi);
-                shaurmaEntities.GetContext().images.Add(images);
+                Fili_CafeEntities.GetContext().uslugi.Add(_uslugi);
+                Fili_CafeEntities.GetContext().images.Add(images);
             }
             try
             {
-                shaurmaEntities.GetContext().SaveChanges();
+                Fili_CafeEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
                 this.Close();
             }

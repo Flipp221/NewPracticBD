@@ -21,9 +21,9 @@ namespace NewPracticBD
         public Nullable<int> id_time { get; set; }
         public Nullable<int> id_image { get; set; }
     
+        public virtual images images { get; set; }
         public virtual price price { get; set; }
         public virtual time time { get; set; }
         public virtual uslugi uslugi { get; set; }
-        public virtual images images { get; set; }
     }
 }

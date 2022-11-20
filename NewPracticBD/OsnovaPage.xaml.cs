@@ -32,12 +32,12 @@ namespace NewPracticBD
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
-            DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
+            DGridKatalog.ItemsSource = Fili_CafeEntities.GetContext().uslugi.ToList();
         }
 
         public void aa ()
         {
-            DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
+            DGridKatalog.ItemsSource = Fili_CafeEntities.GetContext().uslugi.ToList();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -208,10 +208,10 @@ namespace NewPracticBD
         {
             if (Visibility == Visibility.Visible)
             {
-                shaurmaEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(a => a.Reload());
-                DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
-                GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
-                GridZakazi.ItemsSource = shaurmaEntities.GetContext().Zakazi.ToList();
+                Fili_CafeEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(a => a.Reload());
+                DGridKatalog.ItemsSource = Fili_CafeEntities.GetContext().uslugi.ToList();
+                GridSklad.ItemsSource = Fili_CafeEntities.GetContext().Sklad.ToList();
+                GridZakazi.ItemsSource = Fili_CafeEntities.GetContext().Zakazi.ToList();
             }
         }
 
@@ -318,11 +318,11 @@ namespace NewPracticBD
             {
                 try
                 {
-                    shaurmaEntities.GetContext().uslugi.RemoveRange(MousesForRemoving);
-                    shaurmaEntities.GetContext().SaveChanges();
+                    Fili_CafeEntities.GetContext().uslugi.RemoveRange(MousesForRemoving);
+                    Fili_CafeEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
 
-                    DGridKatalog.ItemsSource = shaurmaEntities.GetContext().uslugi.ToList();
+                    DGridKatalog.ItemsSource = Fili_CafeEntities.GetContext().uslugi.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -427,7 +427,7 @@ namespace NewPracticBD
                     sklad.ogurci.kolich -= 1;
                     sklad.pomidori.kolich -= 1;
                     MainWindow.db.SaveChanges();
-                    GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+                    GridSklad.ItemsSource = Fili_CafeEntities.GetContext().Sklad.ToList();
                     OsnovaPage osnovaPage = new OsnovaPage();
                     osnovaPage.Show();
                     this.Close();
@@ -463,7 +463,7 @@ namespace NewPracticBD
                     sklad.ogurci.kolich -= 1;
                     sklad.pomidori.kolich -= 1;
                     MainWindow.db.SaveChanges();
-                    GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+                    GridSklad.ItemsSource = Fili_CafeEntities.GetContext().Sklad.ToList();
                     OsnovaPage osnovaPage = new OsnovaPage();
                     osnovaPage.Show();
                     this.Close();
@@ -499,7 +499,7 @@ namespace NewPracticBD
                     sklad.pomidori.kolich -= 1;
                     sklad.sosiska.kolich -= 1;
                     MainWindow.db.SaveChanges();
-                    GridSklad.ItemsSource = shaurmaEntities.GetContext().Sklad.ToList();
+                    GridSklad.ItemsSource = Fili_CafeEntities.GetContext().Sklad.ToList();
                     OsnovaPage osnovaPage = new OsnovaPage();
                     osnovaPage.Show();
                     this.Close();
@@ -517,11 +517,11 @@ namespace NewPracticBD
             {
                 try
                 {
-                    shaurmaEntities.GetContext().Zakazi.RemoveRange(MousesForRemoving);
-                    shaurmaEntities.GetContext().SaveChanges();
+                    Fili_CafeEntities.GetContext().Zakazi.RemoveRange(MousesForRemoving);
+                    Fili_CafeEntities.GetContext().SaveChanges();
                     MessageBox.Show("Заказ принят!");
 
-                    GridZakazi.ItemsSource = shaurmaEntities.GetContext().Zakazi.ToList();
+                    GridZakazi.ItemsSource = Fili_CafeEntities.GetContext().Zakazi.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -532,8 +532,15 @@ namespace NewPracticBD
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
+            if (MainWindow.vhodUser.id_user != 2)
+            {
+                GridZakazi.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                GridZakazi.Visibility = Visibility.Hidden;
+            }
             ZakaziTB.Visibility = Visibility.Visible;
-            GridZakazi.Visibility = Visibility.Visible;
             Prinyato.Visibility = Visibility.Visible;
             four.Visibility = Visibility.Hidden;
             twos.Visibility = Visibility.Hidden;

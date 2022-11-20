@@ -102,11 +102,26 @@
     <Compile Include="AddUslugiPage.xaml.cs">
       <DependentUpon>AddUslugiPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CafeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CafeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CafeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafeModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="images.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="lavash.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -115,66 +130,52 @@
       <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Luck.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="myasko.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="number_user.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ogurci.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OsnovaPage.xaml.cs">
       <DependentUpon>OsnovaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pomidori.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="price.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="roll.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sosiska.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sprice.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Star.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="time.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="uslugi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zakazi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CafeModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddUslugiPage.xaml">
       <SubType>Designer</SubType>
@@ -206,16 +207,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -233,12 +224,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="CafeModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>CafeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="CafeModel.edmx.diagram">
+      <DependentUpon>CafeModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -271,16 +262,6 @@
     <Resource Include="glav.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Resource Include="Photo\times.png" />
     <Resource Include="Photo\star.png" />
     <Resource Include="Photo\priced.png" />
@@ -294,6 +275,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CafeModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CafeModel.edmx</DependentUpon>
+      <LastGenOutput>CafeModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CafeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CafeModel.edmx</DependentUpon>
+      <LastGenOutput>CafeModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />

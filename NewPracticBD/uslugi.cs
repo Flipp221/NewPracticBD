@@ -28,12 +28,12 @@ namespace NewPracticBD
         public Nullable<int> id_star { get; set; }
         public int id_image { get; set; }
     
+        public virtual images images { get; set; }
         public virtual price price { get; set; }
         public virtual sprice sprice { get; set; }
-        public virtual time time { get; set; }
         public virtual Star Star { get; set; }
+        public virtual time time { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zakazi> Zakazi { get; set; }
-        public virtual images images { get; set; }
     }
 }

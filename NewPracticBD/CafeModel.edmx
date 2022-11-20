@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище shaurmaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="images">
           <Key>
             <PropertyRef Name="id_image" />
@@ -102,16 +102,6 @@
           </Key>
           <Property Name="id_star" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="int" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="time">
           <Key>
@@ -358,38 +348,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="Хранилище shaurmaModelContainer">
+        <EntityContainer Name="Хранилище ModelContainer">
           <EntitySet Name="images" EntityType="Self.images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lavash" EntityType="Self.lavash" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Luck" EntityType="Self.Luck" Schema="dbo" store:Type="Tables" />
@@ -403,7 +362,6 @@
           <EntitySet Name="sosiska" EntityType="Self.sosiska" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sprice" EntityType="Self.sprice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Star" EntityType="Self.Star" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="time" EntityType="Self.time" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uslugi" EntityType="Self.uslugi" Schema="dbo" store:Type="Tables" />
@@ -477,81 +435,91 @@
             <End Role="Zakazi" EntitySet="Zakazi" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="shaurmaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="images">
+          <Key>
+            <PropertyRef Name="id_image" />
+          </Key>
+          <Property Name="id_image" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="uslugi" Relationship="Self.FK_uslugi_images" FromRole="images" ToRole="uslugi" />
+          <NavigationProperty Name="Zakazi" Relationship="Self.FK_Zakazi_images" FromRole="images" ToRole="Zakazi" />
+        </EntityType>
         <EntityType Name="lavash">
           <Key>
             <PropertyRef Name="id_lavash" />
           </Key>
-          <Property Name="id_lavash" Type="Int32" Nullable="false" />
+          <Property Name="id_lavash" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kolich" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sklad" Relationship="shaurmaModel.FK_Sklad_lavash" FromRole="lavash" ToRole="Sklad" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_lavash" FromRole="lavash" ToRole="Sklad" />
         </EntityType>
         <EntityType Name="Luck">
           <Key>
             <PropertyRef Name="id_luck" />
           </Key>
-          <Property Name="id_luck" Type="Int32" Nullable="false" />
+          <Property Name="id_luck" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kolich" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sklad" Relationship="shaurmaModel.FK_Sklad_Luck" FromRole="Luck" ToRole="Sklad" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_Luck" FromRole="Luck" ToRole="Sklad" />
         </EntityType>
         <EntityType Name="myasko">
           <Key>
             <PropertyRef Name="id_myaso" />
           </Key>
-          <Property Name="id_myaso" Type="Int32" Nullable="false" />
+          <Property Name="id_myaso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kolich" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sklad" Relationship="shaurmaModel.FK_Sklad_myasko" FromRole="myasko" ToRole="Sklad" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_myasko" FromRole="myasko" ToRole="Sklad" />
         </EntityType>
         <EntityType Name="number_user">
           <Key>
             <PropertyRef Name="id_number" />
           </Key>
-          <Property Name="id_number" Type="Int32" Nullable="false" />
+          <Property Name="id_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_user" Type="Int32" />
-          <NavigationProperty Name="users" Relationship="shaurmaModel.FK_number_user_users" FromRole="number_user" ToRole="users" />
+          <NavigationProperty Name="users" Relationship="Self.FK_number_user_users" FromRole="number_user" ToRole="users" />
         </EntityType>
         <EntityType Name="ogurci">
           <Key>
             <PropertyRef Name="id_ogurec" />
           </Key>
-          <Property Name="id_ogurec" Type="Int32" Nullable="false" />
+          <Property Name="id_ogurec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kolich" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sklad" Relationship="shaurmaModel.FK_Sklad_ogurci" FromRole="ogurci" ToRole="Sklad" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_ogurci" FromRole="ogurci" ToRole="Sklad" />
         </EntityType>
         <EntityType Name="pomidori">
           <Key>
             <PropertyRef Name="id_pomidori" />
           </Key>
-          <Property Name="id_pomidori" Type="Int32" Nullable="false" />
+          <Property Name="id_pomidori" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kolich" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sklad" Relationship="shaurmaModel.FK_Sklad_pomidori" FromRole="pomidori" ToRole="Sklad" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_pomidori" FromRole="pomidori" ToRole="Sklad" />
         </EntityType>
         <EntityType Name="price">
           <Key>
             <PropertyRef Name="id_price" />
           </Key>
-          <Property Name="id_price" Type="Int32" Nullable="false" />
+          <Property Name="id_price" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_price" FromRole="price" ToRole="uslugi" />
-          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_price" FromRole="price" ToRole="Zakazi" />
+          <NavigationProperty Name="uslugi" Relationship="Self.FK_uslugi_price" FromRole="price" ToRole="uslugi" />
+          <NavigationProperty Name="Zakazi" Relationship="Self.FK_Zakazi_price" FromRole="price" ToRole="Zakazi" />
         </EntityType>
         <EntityType Name="roll">
           <Key>
             <PropertyRef Name="id_roll" />
           </Key>
-          <Property Name="id_roll" Type="Int32" Nullable="false" />
+          <Property Name="id_roll" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="users" Relationship="shaurmaModel.FK_users_roll" FromRole="roll" ToRole="users" />
+          <NavigationProperty Name="users" Relationship="Self.FK_users_roll" FromRole="roll" ToRole="users" />
         </EntityType>
         <EntityType Name="Sklad">
           <Key>
             <PropertyRef Name="id_sklad" />
           </Key>
-          <Property Name="id_sklad" Type="Int32" Nullable="false" />
+          <Property Name="id_sklad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_lavash" Type="Int32" Nullable="false" />
           <Property Name="id_luck" Type="Int32" Nullable="false" />
@@ -559,70 +527,298 @@
           <Property Name="id_ogurec" Type="Int32" Nullable="false" />
           <Property Name="id_pomidori" Type="Int32" Nullable="false" />
           <Property Name="id_sosiska" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="lavash" Relationship="shaurmaModel.FK_Sklad_lavash" FromRole="Sklad" ToRole="lavash" />
-          <NavigationProperty Name="Luck" Relationship="shaurmaModel.FK_Sklad_Luck" FromRole="Sklad" ToRole="Luck" />
-          <NavigationProperty Name="myasko" Relationship="shaurmaModel.FK_Sklad_myasko" FromRole="Sklad" ToRole="myasko" />
-          <NavigationProperty Name="ogurci" Relationship="shaurmaModel.FK_Sklad_ogurci" FromRole="Sklad" ToRole="ogurci" />
-          <NavigationProperty Name="pomidori" Relationship="shaurmaModel.FK_Sklad_pomidori" FromRole="Sklad" ToRole="pomidori" />
-          <NavigationProperty Name="sosiska" Relationship="shaurmaModel.FK_Sklad_sosiska" FromRole="Sklad" ToRole="sosiska" />
+          <NavigationProperty Name="lavash" Relationship="Self.FK_Sklad_lavash" FromRole="Sklad" ToRole="lavash" />
+          <NavigationProperty Name="Luck" Relationship="Self.FK_Sklad_Luck" FromRole="Sklad" ToRole="Luck" />
+          <NavigationProperty Name="myasko" Relationship="Self.FK_Sklad_myasko" FromRole="Sklad" ToRole="myasko" />
+          <NavigationProperty Name="ogurci" Relationship="Self.FK_Sklad_ogurci" FromRole="Sklad" ToRole="ogurci" />
+          <NavigationProperty Name="pomidori" Relationship="Self.FK_Sklad_pomidori" FromRole="Sklad" ToRole="pomidori" />
+          <NavigationProperty Name="sosiska" Relationship="Self.FK_Sklad_sosiska" FromRole="Sklad" ToRole="sosiska" />
         </EntityType>
         <EntityType Name="sosiska">
           <Key>
             <PropertyRef Name="id_sosiska" />
           </Key>
-          <Property Name="id_sosiska" Type="Int32" Nullable="false" />
+          <Property Name="id_sosiska" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kolich" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sklad" Relationship="shaurmaModel.FK_Sklad_sosiska" FromRole="sosiska" ToRole="Sklad" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_sosiska" FromRole="sosiska" ToRole="Sklad" />
         </EntityType>
         <EntityType Name="sprice">
           <Key>
             <PropertyRef Name="id_sprice" />
           </Key>
-          <Property Name="id_sprice" Type="Int32" Nullable="false" />
+          <Property Name="id_sprice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_sprice" FromRole="sprice" ToRole="uslugi" />
+          <NavigationProperty Name="uslugi" Relationship="Self.FK_uslugi_sprice" FromRole="sprice" ToRole="uslugi" />
+        </EntityType>
+        <EntityType Name="Star">
+          <Key>
+            <PropertyRef Name="id_star" />
+          </Key>
+          <Property Name="id_star" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="Int32" />
+          <NavigationProperty Name="uslugi" Relationship="Self.FK_uslugi_Star" FromRole="Star" ToRole="uslugi" />
         </EntityType>
         <EntityType Name="time">
           <Key>
             <PropertyRef Name="id_time" />
           </Key>
-          <Property Name="id_time" Type="Int32" Nullable="false" />
+          <Property Name="id_time" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_time" FromRole="time" ToRole="uslugi" />
-          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_time" FromRole="time" ToRole="Zakazi" />
+          <NavigationProperty Name="uslugi" Relationship="Self.FK_uslugi_time" FromRole="time" ToRole="uslugi" />
+          <NavigationProperty Name="Zakazi" Relationship="Self.FK_Zakazi_time" FromRole="time" ToRole="Zakazi" />
         </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="id_user" />
           </Key>
-          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_roll" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="number_user" Relationship="shaurmaModel.FK_number_user_users" FromRole="users" ToRole="number_user" />
-          <NavigationProperty Name="roll" Relationship="shaurmaModel.FK_users_roll" FromRole="users" ToRole="roll" />
+          <NavigationProperty Name="number_user" Relationship="Self.FK_number_user_users" FromRole="users" ToRole="number_user" />
+          <NavigationProperty Name="roll" Relationship="Self.FK_users_roll" FromRole="users" ToRole="roll" />
         </EntityType>
         <EntityType Name="uslugi">
           <Key>
             <PropertyRef Name="id_usluga" />
           </Key>
-          <Property Name="id_usluga" Type="Int32" Nullable="false" />
+          <Property Name="id_usluga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_price" Type="Int32" Nullable="false" />
           <Property Name="id_time" Type="Int32" Nullable="false" />
           <Property Name="id_sprice" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="price" Relationship="shaurmaModel.FK_uslugi_price" FromRole="uslugi" ToRole="price" />
-          <NavigationProperty Name="sprice" Relationship="shaurmaModel.FK_uslugi_sprice" FromRole="uslugi" ToRole="sprice" />
-          <NavigationProperty Name="time" Relationship="shaurmaModel.FK_uslugi_time" FromRole="uslugi" ToRole="time" />
           <Property Name="id_star" Type="Int32" />
-          <NavigationProperty Name="Star" Relationship="shaurmaModel.FK_uslugi_Star" FromRole="uslugi" ToRole="Star" />
-          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_uslugi" FromRole="uslugi" ToRole="Zakazi" />
           <Property Name="id_image" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="images" Relationship="shaurmaModel.FK_uslugi_images" FromRole="uslugi" ToRole="images" />
+          <NavigationProperty Name="images" Relationship="Self.FK_uslugi_images" FromRole="uslugi" ToRole="images" />
+          <NavigationProperty Name="price" Relationship="Self.FK_uslugi_price" FromRole="uslugi" ToRole="price" />
+          <NavigationProperty Name="sprice" Relationship="Self.FK_uslugi_sprice" FromRole="uslugi" ToRole="sprice" />
+          <NavigationProperty Name="Star" Relationship="Self.FK_uslugi_Star" FromRole="uslugi" ToRole="Star" />
+          <NavigationProperty Name="time" Relationship="Self.FK_uslugi_time" FromRole="uslugi" ToRole="time" />
+          <NavigationProperty Name="Zakazi" Relationship="Self.FK_Zakazi_uslugi" FromRole="uslugi" ToRole="Zakazi" />
         </EntityType>
-        <EntityContainer Name="shaurmaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="Zakazi">
+          <Key>
+            <PropertyRef Name="id_zakaza" />
+          </Key>
+          <Property Name="id_zakaza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usluga" Type="Int32" />
+          <Property Name="id_price" Type="Int32" />
+          <Property Name="id_time" Type="Int32" />
+          <Property Name="id_image" Type="Int32" />
+          <NavigationProperty Name="images" Relationship="Self.FK_Zakazi_images" FromRole="Zakazi" ToRole="images" />
+          <NavigationProperty Name="price" Relationship="Self.FK_Zakazi_price" FromRole="Zakazi" ToRole="price" />
+          <NavigationProperty Name="time" Relationship="Self.FK_Zakazi_time" FromRole="Zakazi" ToRole="time" />
+          <NavigationProperty Name="uslugi" Relationship="Self.FK_Zakazi_uslugi" FromRole="Zakazi" ToRole="uslugi" />
+        </EntityType>
+        <Association Name="FK_uslugi_images">
+          <End Role="images" Type="Self.images" Multiplicity="1" />
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="images">
+              <PropertyRef Name="id_image" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_images">
+          <End Role="images" Type="Self.images" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="images">
+              <PropertyRef Name="id_image" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_lavash">
+          <End Role="lavash" Type="Self.lavash" Multiplicity="1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lavash">
+              <PropertyRef Name="id_lavash" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_lavash" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_Luck">
+          <End Role="Luck" Type="Self.Luck" Multiplicity="1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Luck">
+              <PropertyRef Name="id_luck" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_luck" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_myasko">
+          <End Role="myasko" Type="Self.myasko" Multiplicity="1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="myasko">
+              <PropertyRef Name="id_myaso" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_myaso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_number_user_users">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="number_user" Type="Self.number_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="number_user">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_ogurci">
+          <End Role="ogurci" Type="Self.ogurci" Multiplicity="1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ogurci">
+              <PropertyRef Name="id_ogurec" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_ogurec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_pomidori">
+          <End Role="pomidori" Type="Self.pomidori" Multiplicity="1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pomidori">
+              <PropertyRef Name="id_pomidori" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_pomidori" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uslugi_price">
+          <End Role="price" Type="Self.price" Multiplicity="1" />
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="price">
+              <PropertyRef Name="id_price" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_price" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_price">
+          <End Role="price" Type="Self.price" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="price">
+              <PropertyRef Name="id_price" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_price" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users_roll">
+          <End Role="roll" Type="Self.roll" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roll">
+              <PropertyRef Name="id_roll" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="id_roll" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_sosiska">
+          <End Role="sosiska" Type="Self.sosiska" Multiplicity="1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sosiska">
+              <PropertyRef Name="id_sosiska" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_sosiska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uslugi_sprice">
+          <End Role="sprice" Type="Self.sprice" Multiplicity="1" />
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sprice">
+              <PropertyRef Name="id_sprice" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_sprice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uslugi_Star">
+          <End Role="Star" Type="Self.Star" Multiplicity="0..1" />
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Star">
+              <PropertyRef Name="id_star" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_star" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uslugi_time">
+          <End Role="time" Type="Self.time" Multiplicity="1" />
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="time">
+              <PropertyRef Name="id_time" />
+            </Principal>
+            <Dependent Role="uslugi">
+              <PropertyRef Name="id_time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_time">
+          <End Role="time" Type="Self.time" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="time">
+              <PropertyRef Name="id_time" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakazi_uslugi">
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="0..1" />
+          <End Role="Zakazi" Type="Self.Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uslugi">
+              <PropertyRef Name="id_usluga" />
+            </Principal>
+            <Dependent Role="Zakazi">
+              <PropertyRef Name="id_usluga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Fili_CafeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="images" EntityType="Self.images" />
           <EntitySet Name="lavash" EntityType="Self.lavash" />
           <EntitySet Name="Luck" EntityType="Self.Luck" />
           <EntitySet Name="myasko" EntityType="Self.myasko" />
@@ -634,377 +830,96 @@
           <EntitySet Name="Sklad" EntityType="Self.Sklad" />
           <EntitySet Name="sosiska" EntityType="Self.sosiska" />
           <EntitySet Name="sprice" EntityType="Self.sprice" />
+          <EntitySet Name="Star" EntityType="Self.Star" />
           <EntitySet Name="time" EntityType="Self.time" />
           <EntitySet Name="users" EntityType="Self.users" />
           <EntitySet Name="uslugi" EntityType="Self.uslugi" />
-          <AssociationSet Name="FK_Sklad_lavash" Association="shaurmaModel.FK_Sklad_lavash">
+          <EntitySet Name="Zakazi" EntityType="Self.Zakazi" />
+          <AssociationSet Name="FK_uslugi_images" Association="Self.FK_uslugi_images">
+            <End Role="images" EntitySet="images" />
+            <End Role="uslugi" EntitySet="uslugi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakazi_images" Association="Self.FK_Zakazi_images">
+            <End Role="images" EntitySet="images" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sklad_lavash" Association="Self.FK_Sklad_lavash">
             <End Role="lavash" EntitySet="lavash" />
             <End Role="Sklad" EntitySet="Sklad" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sklad_Luck" Association="shaurmaModel.FK_Sklad_Luck">
+          <AssociationSet Name="FK_Sklad_Luck" Association="Self.FK_Sklad_Luck">
             <End Role="Luck" EntitySet="Luck" />
             <End Role="Sklad" EntitySet="Sklad" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sklad_myasko" Association="shaurmaModel.FK_Sklad_myasko">
+          <AssociationSet Name="FK_Sklad_myasko" Association="Self.FK_Sklad_myasko">
             <End Role="myasko" EntitySet="myasko" />
             <End Role="Sklad" EntitySet="Sklad" />
           </AssociationSet>
-          <AssociationSet Name="FK_number_user_users" Association="shaurmaModel.FK_number_user_users">
+          <AssociationSet Name="FK_number_user_users" Association="Self.FK_number_user_users">
             <End Role="users" EntitySet="users" />
             <End Role="number_user" EntitySet="number_user" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sklad_ogurci" Association="shaurmaModel.FK_Sklad_ogurci">
+          <AssociationSet Name="FK_Sklad_ogurci" Association="Self.FK_Sklad_ogurci">
             <End Role="ogurci" EntitySet="ogurci" />
             <End Role="Sklad" EntitySet="Sklad" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sklad_pomidori" Association="shaurmaModel.FK_Sklad_pomidori">
+          <AssociationSet Name="FK_Sklad_pomidori" Association="Self.FK_Sklad_pomidori">
             <End Role="pomidori" EntitySet="pomidori" />
             <End Role="Sklad" EntitySet="Sklad" />
           </AssociationSet>
-          <AssociationSet Name="FK_uslugi_price" Association="shaurmaModel.FK_uslugi_price">
+          <AssociationSet Name="FK_uslugi_price" Association="Self.FK_uslugi_price">
             <End Role="price" EntitySet="price" />
             <End Role="uslugi" EntitySet="uslugi" />
           </AssociationSet>
-          <AssociationSet Name="FK_users_roll" Association="shaurmaModel.FK_users_roll">
+          <AssociationSet Name="FK_Zakazi_price" Association="Self.FK_Zakazi_price">
+            <End Role="price" EntitySet="price" />
+            <End Role="Zakazi" EntitySet="Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_roll" Association="Self.FK_users_roll">
             <End Role="roll" EntitySet="roll" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sklad_sosiska" Association="shaurmaModel.FK_Sklad_sosiska">
+          <AssociationSet Name="FK_Sklad_sosiska" Association="Self.FK_Sklad_sosiska">
             <End Role="sosiska" EntitySet="sosiska" />
             <End Role="Sklad" EntitySet="Sklad" />
           </AssociationSet>
-          <AssociationSet Name="FK_uslugi_sprice" Association="shaurmaModel.FK_uslugi_sprice">
+          <AssociationSet Name="FK_uslugi_sprice" Association="Self.FK_uslugi_sprice">
             <End Role="sprice" EntitySet="sprice" />
             <End Role="uslugi" EntitySet="uslugi" />
           </AssociationSet>
-          <AssociationSet Name="FK_uslugi_time" Association="shaurmaModel.FK_uslugi_time">
-            <End Role="time" EntitySet="time" />
-            <End Role="uslugi" EntitySet="uslugi" />
-          </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="shaurmaModel.sysdiagrams" />
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(shaurmaModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(shaurmaModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Star" EntityType="shaurmaModel.Star" />
-          <AssociationSet Name="FK_uslugi_Star" Association="shaurmaModel.FK_uslugi_Star">
+          <AssociationSet Name="FK_uslugi_Star" Association="Self.FK_uslugi_Star">
             <End Role="Star" EntitySet="Star" />
             <End Role="uslugi" EntitySet="uslugi" />
           </AssociationSet>
-          <EntitySet Name="Zakazi" EntityType="shaurmaModel.Zakazi" />
-          <AssociationSet Name="FK_Zakazi_price" Association="shaurmaModel.FK_Zakazi_price">
-            <End Role="price" EntitySet="price" />
-            <End Role="Zakazi" EntitySet="Zakazi" />
+          <AssociationSet Name="FK_uslugi_time" Association="Self.FK_uslugi_time">
+            <End Role="time" EntitySet="time" />
+            <End Role="uslugi" EntitySet="uslugi" />
           </AssociationSet>
-          <AssociationSet Name="FK_Zakazi_time" Association="shaurmaModel.FK_Zakazi_time">
+          <AssociationSet Name="FK_Zakazi_time" Association="Self.FK_Zakazi_time">
             <End Role="time" EntitySet="time" />
             <End Role="Zakazi" EntitySet="Zakazi" />
           </AssociationSet>
-          <AssociationSet Name="FK_Zakazi_uslugi" Association="shaurmaModel.FK_Zakazi_uslugi">
+          <AssociationSet Name="FK_Zakazi_uslugi" Association="Self.FK_Zakazi_uslugi">
             <End Role="uslugi" EntitySet="uslugi" />
-            <End Role="Zakazi" EntitySet="Zakazi" />
-          </AssociationSet>
-          <EntitySet Name="images" EntityType="shaurmaModel.images" />
-          <AssociationSet Name="FK_uslugi_images" Association="shaurmaModel.FK_uslugi_images">
-            <End Role="images" EntitySet="images" />
-            <End Role="uslugi" EntitySet="uslugi" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Zakazi_images" Association="shaurmaModel.FK_Zakazi_images">
-            <End Role="images" EntitySet="images" />
             <End Role="Zakazi" EntitySet="Zakazi" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_Sklad_lavash">
-          <End Type="shaurmaModel.lavash" Role="lavash" Multiplicity="1" />
-          <End Type="shaurmaModel.Sklad" Role="Sklad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lavash">
-              <PropertyRef Name="id_lavash" />
-            </Principal>
-            <Dependent Role="Sklad">
-              <PropertyRef Name="id_lavash" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sklad_Luck">
-          <End Type="shaurmaModel.Luck" Role="Luck" Multiplicity="1" />
-          <End Type="shaurmaModel.Sklad" Role="Sklad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Luck">
-              <PropertyRef Name="id_luck" />
-            </Principal>
-            <Dependent Role="Sklad">
-              <PropertyRef Name="id_luck" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sklad_myasko">
-          <End Type="shaurmaModel.myasko" Role="myasko" Multiplicity="1" />
-          <End Type="shaurmaModel.Sklad" Role="Sklad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="myasko">
-              <PropertyRef Name="id_myaso" />
-            </Principal>
-            <Dependent Role="Sklad">
-              <PropertyRef Name="id_myaso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_number_user_users">
-          <End Type="shaurmaModel.users" Role="users" Multiplicity="0..1" />
-          <End Type="shaurmaModel.number_user" Role="number_user" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="users">
-              <PropertyRef Name="id_user" />
-            </Principal>
-            <Dependent Role="number_user">
-              <PropertyRef Name="id_user" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sklad_ogurci">
-          <End Type="shaurmaModel.ogurci" Role="ogurci" Multiplicity="1" />
-          <End Type="shaurmaModel.Sklad" Role="Sklad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ogurci">
-              <PropertyRef Name="id_ogurec" />
-            </Principal>
-            <Dependent Role="Sklad">
-              <PropertyRef Name="id_ogurec" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sklad_pomidori">
-          <End Type="shaurmaModel.pomidori" Role="pomidori" Multiplicity="1" />
-          <End Type="shaurmaModel.Sklad" Role="Sklad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pomidori">
-              <PropertyRef Name="id_pomidori" />
-            </Principal>
-            <Dependent Role="Sklad">
-              <PropertyRef Name="id_pomidori" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_uslugi_price">
-          <End Type="shaurmaModel.price" Role="price" Multiplicity="1" />
-          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="price">
-              <PropertyRef Name="id_price" />
-            </Principal>
-            <Dependent Role="uslugi">
-              <PropertyRef Name="id_price" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_users_roll">
-          <End Type="shaurmaModel.roll" Role="roll" Multiplicity="1" />
-          <End Type="shaurmaModel.users" Role="users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="roll">
-              <PropertyRef Name="id_roll" />
-            </Principal>
-            <Dependent Role="users">
-              <PropertyRef Name="id_roll" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sklad_sosiska">
-          <End Type="shaurmaModel.sosiska" Role="sosiska" Multiplicity="1" />
-          <End Type="shaurmaModel.Sklad" Role="Sklad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sosiska">
-              <PropertyRef Name="id_sosiska" />
-            </Principal>
-            <Dependent Role="Sklad">
-              <PropertyRef Name="id_sosiska" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_uslugi_sprice">
-          <End Type="shaurmaModel.sprice" Role="sprice" Multiplicity="1" />
-          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sprice">
-              <PropertyRef Name="id_sprice" />
-            </Principal>
-            <Dependent Role="uslugi">
-              <PropertyRef Name="id_sprice" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_uslugi_time">
-          <End Type="shaurmaModel.time" Role="time" Multiplicity="1" />
-          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="time">
-              <PropertyRef Name="id_time" />
-            </Principal>
-            <Dependent Role="uslugi">
-              <PropertyRef Name="id_time" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
-        <EntityType Name="Star">
-          <Key>
-            <PropertyRef Name="id_star" />
-          </Key>
-          <Property Name="id_star" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="Int32" />
-          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_Star" FromRole="Star" ToRole="uslugi" />
-        </EntityType>
-        <Association Name="FK_uslugi_Star">
-          <End Type="shaurmaModel.Star" Role="Star" Multiplicity="0..1" />
-          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Star">
-              <PropertyRef Name="id_star" />
-            </Principal>
-            <Dependent Role="uslugi">
-              <PropertyRef Name="id_star" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Zakazi">
-          <Key>
-            <PropertyRef Name="id_zakaza" />
-          </Key>
-          <Property Name="id_zakaza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id_usluga" Type="Int32" />
-          <Property Name="id_price" Type="Int32" />
-          <Property Name="id_time" Type="Int32" />
-          <NavigationProperty Name="price" Relationship="shaurmaModel.FK_Zakazi_price" FromRole="Zakazi" ToRole="price" />
-          <NavigationProperty Name="time" Relationship="shaurmaModel.FK_Zakazi_time" FromRole="Zakazi" ToRole="time" />
-          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_Zakazi_uslugi" FromRole="Zakazi" ToRole="uslugi" />
-          <Property Name="id_image" Type="Int32" />
-          <NavigationProperty Name="images" Relationship="shaurmaModel.FK_Zakazi_images" FromRole="Zakazi" ToRole="images" />
-        </EntityType>
-        <Association Name="FK_Zakazi_price">
-          <End Type="shaurmaModel.price" Role="price" Multiplicity="0..1" />
-          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="price">
-              <PropertyRef Name="id_price" />
-            </Principal>
-            <Dependent Role="Zakazi">
-              <PropertyRef Name="id_price" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Zakazi_time">
-          <End Type="shaurmaModel.time" Role="time" Multiplicity="0..1" />
-          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="time">
-              <PropertyRef Name="id_time" />
-            </Principal>
-            <Dependent Role="Zakazi">
-              <PropertyRef Name="id_time" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Zakazi_uslugi">
-          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="0..1" />
-          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="uslugi">
-              <PropertyRef Name="id_usluga" />
-            </Principal>
-            <Dependent Role="Zakazi">
-              <PropertyRef Name="id_usluga" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="images">
-          <Key>
-            <PropertyRef Name="id_image" />
-          </Key>
-          <Property Name="id_image" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="uslugi" Relationship="shaurmaModel.FK_uslugi_images" FromRole="images" ToRole="uslugi" />
-          <NavigationProperty Name="Zakazi" Relationship="shaurmaModel.FK_Zakazi_images" FromRole="images" ToRole="Zakazi" />
-        </EntityType>
-        <Association Name="FK_uslugi_images">
-          <End Type="shaurmaModel.images" Role="images" Multiplicity="1" />
-          <End Type="shaurmaModel.uslugi" Role="uslugi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="images">
-              <PropertyRef Name="id_image" />
-            </Principal>
-            <Dependent Role="uslugi">
-              <PropertyRef Name="id_image" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Zakazi_images">
-          <End Type="shaurmaModel.images" Role="images" Multiplicity="0..1" />
-          <End Type="shaurmaModel.Zakazi" Role="Zakazi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="images">
-              <PropertyRef Name="id_image" />
-            </Principal>
-            <Dependent Role="Zakazi">
-              <PropertyRef Name="id_image" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище shaurmaModelContainer" CdmEntityContainer="shaurmaEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Fili_CafeEntities">
+          <EntitySetMapping Name="images">
+            <EntityTypeMapping TypeName="Model.images">
+              <MappingFragment StoreEntitySet="images">
+                <ScalarProperty Name="id_image" ColumnName="id_image" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="lavash">
-            <EntityTypeMapping TypeName="shaurmaModel.lavash">
+            <EntityTypeMapping TypeName="Model.lavash">
               <MappingFragment StoreEntitySet="lavash">
                 <ScalarProperty Name="id_lavash" ColumnName="id_lavash" />
                 <ScalarProperty Name="kolich" ColumnName="kolich" />
@@ -1012,7 +927,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Luck">
-            <EntityTypeMapping TypeName="shaurmaModel.Luck">
+            <EntityTypeMapping TypeName="Model.Luck">
               <MappingFragment StoreEntitySet="Luck">
                 <ScalarProperty Name="id_luck" ColumnName="id_luck" />
                 <ScalarProperty Name="kolich" ColumnName="kolich" />
@@ -1020,7 +935,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="myasko">
-            <EntityTypeMapping TypeName="shaurmaModel.myasko">
+            <EntityTypeMapping TypeName="Model.myasko">
               <MappingFragment StoreEntitySet="myasko">
                 <ScalarProperty Name="id_myaso" ColumnName="id_myaso" />
                 <ScalarProperty Name="kolich" ColumnName="kolich" />
@@ -1028,7 +943,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="number_user">
-            <EntityTypeMapping TypeName="shaurmaModel.number_user">
+            <EntityTypeMapping TypeName="Model.number_user">
               <MappingFragment StoreEntitySet="number_user">
                 <ScalarProperty Name="id_number" ColumnName="id_number" />
                 <ScalarProperty Name="password" ColumnName="password" />
@@ -1037,7 +952,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ogurci">
-            <EntityTypeMapping TypeName="shaurmaModel.ogurci">
+            <EntityTypeMapping TypeName="Model.ogurci">
               <MappingFragment StoreEntitySet="ogurci">
                 <ScalarProperty Name="id_ogurec" ColumnName="id_ogurec" />
                 <ScalarProperty Name="kolich" ColumnName="kolich" />
@@ -1045,7 +960,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pomidori">
-            <EntityTypeMapping TypeName="shaurmaModel.pomidori">
+            <EntityTypeMapping TypeName="Model.pomidori">
               <MappingFragment StoreEntitySet="pomidori">
                 <ScalarProperty Name="id_pomidori" ColumnName="id_pomidori" />
                 <ScalarProperty Name="kolich" ColumnName="kolich" />
@@ -1053,7 +968,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="price">
-            <EntityTypeMapping TypeName="shaurmaModel.price">
+            <EntityTypeMapping TypeName="Model.price">
               <MappingFragment StoreEntitySet="price">
                 <ScalarProperty Name="id_price" ColumnName="id_price" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1061,7 +976,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roll">
-            <EntityTypeMapping TypeName="shaurmaModel.roll">
+            <EntityTypeMapping TypeName="Model.roll">
               <MappingFragment StoreEntitySet="roll">
                 <ScalarProperty Name="id_roll" ColumnName="id_roll" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1069,7 +984,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sklad">
-            <EntityTypeMapping TypeName="shaurmaModel.Sklad">
+            <EntityTypeMapping TypeName="Model.Sklad">
               <MappingFragment StoreEntitySet="Sklad">
                 <ScalarProperty Name="id_sklad" ColumnName="id_sklad" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1083,7 +998,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sosiska">
-            <EntityTypeMapping TypeName="shaurmaModel.sosiska">
+            <EntityTypeMapping TypeName="Model.sosiska">
               <MappingFragment StoreEntitySet="sosiska">
                 <ScalarProperty Name="id_sosiska" ColumnName="id_sosiska" />
                 <ScalarProperty Name="kolich" ColumnName="kolich" />
@@ -1091,15 +1006,23 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sprice">
-            <EntityTypeMapping TypeName="shaurmaModel.sprice">
+            <EntityTypeMapping TypeName="Model.sprice">
               <MappingFragment StoreEntitySet="sprice">
                 <ScalarProperty Name="id_sprice" ColumnName="id_sprice" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Star">
+            <EntityTypeMapping TypeName="Model.Star">
+              <MappingFragment StoreEntitySet="Star">
+                <ScalarProperty Name="id_star" ColumnName="id_star" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="time">
-            <EntityTypeMapping TypeName="shaurmaModel.time">
+            <EntityTypeMapping TypeName="Model.time">
               <MappingFragment StoreEntitySet="time">
                 <ScalarProperty Name="id_time" ColumnName="id_time" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1107,7 +1030,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="shaurmaModel.users">
+            <EntityTypeMapping TypeName="Model.users">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1119,77 +1042,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="uslugi">
-            <EntityTypeMapping TypeName="shaurmaModel.uslugi">
+            <EntityTypeMapping TypeName="Model.uslugi">
               <MappingFragment StoreEntitySet="uslugi">
-                <ScalarProperty Name="id_image" ColumnName="id_image" />
-                <ScalarProperty Name="id_star" ColumnName="id_star" />
                 <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id_price" ColumnName="id_price" />
                 <ScalarProperty Name="id_time" ColumnName="id_time" />
                 <ScalarProperty Name="id_sprice" ColumnName="id_sprice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="shaurmaModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище shaurmaModel.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище shaurmaModel.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище shaurmaModel.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище shaurmaModel.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="shaurmaModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище shaurmaModel.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="shaurmaModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище shaurmaModel.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище shaurmaModel.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Star">
-            <EntityTypeMapping TypeName="shaurmaModel.Star">
-              <MappingFragment StoreEntitySet="Star">
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id_star" ColumnName="id_star" />
+                <ScalarProperty Name="id_image" ColumnName="id_image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zakazi">
-            <EntityTypeMapping TypeName="shaurmaModel.Zakazi">
+            <EntityTypeMapping TypeName="Model.Zakazi">
               <MappingFragment StoreEntitySet="Zakazi">
-                <ScalarProperty Name="id_image" ColumnName="id_image" />
-                <ScalarProperty Name="id_time" ColumnName="id_time" />
-                <ScalarProperty Name="id_price" ColumnName="id_price" />
-                <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id_zakaza" ColumnName="id_zakaza" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="images">
-            <EntityTypeMapping TypeName="shaurmaModel.images">
-              <MappingFragment StoreEntitySet="images">
-                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_usluga" ColumnName="id_usluga" />
+                <ScalarProperty Name="id_price" ColumnName="id_price" />
+                <ScalarProperty Name="id_time" ColumnName="id_time" />
                 <ScalarProperty Name="id_image" ColumnName="id_image" />
               </MappingFragment>
             </EntityTypeMapping>
