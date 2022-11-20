@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:NewPracticBD"
         mc:Ignorable="d"
         Title="AddUslugiPage" Height="450" Width="259.274" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid Background="#FFFFA577">
+    <Grid Background="#F5DE6E">
         <TextBox x:Name="NameTB"
                  Text="{Binding name}"
   materialDesign:HintAssist.Hint="Название блюда"

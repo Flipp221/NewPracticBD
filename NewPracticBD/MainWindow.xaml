@@ -8,11 +8,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <Image Source="glav.png" Stretch="Fill" Height="336" VerticalAlignment="Bottom"/>
+        <Image Source="./Photo/PhotoMain.jpg" Stretch="Fill" Height="336" VerticalAlignment="Bottom"/>
         <Grid x:Name="panelHeader" VerticalAlignment="Top" Height="50" MouseDown="PanelHeader_MouseDown" Margin="0,0,652,0"/>
-        <Grid x:Name="sidePanel" Background="#FFA577" HorizontalAlignment="Left" Width="150">
+        <Grid x:Name="sidePanel" Background="#F5DE6E" HorizontalAlignment="Left" Width="150">
             <StackPanel>
-                <Grid Height="150" Background="#FFA577">
+                <Grid Height="150" Background="#F5DE6E">
                     <Image Source="Photo/logo.png"></Image>
                     <Button HorizontalAlignment="Right" Height="20" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" Click="Panel_Click">
                         <Image Source="Photo/menupanel.png"/>
@@ -59,13 +59,12 @@
                     </ListViewItem>
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="RegBut" Content="Регистрация"  HorizontalAlignment="Left" Margin="3,-6,0,0" VerticalAlignment="Top" Width="121" Height="33" Foreground="White" Background="#FFF9A004" BorderBrush="{x:Null}" Click="RegBut_Click" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                            <Button x:Name="RegBut" Content="Регистрация"  HorizontalAlignment="Left" Margin="3,-6,0,0" VerticalAlignment="Top" Width="121" Height="33" Foreground="White" Background="#E6A9B0" BorderBrush="{x:Null}" Click="RegBut_Click" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
-        <TextBox HorizontalAlignment="Left" IsReadOnly="True" FontSize="20" Height="114" Margin="150,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="Добро пожаловать в наше кафе!!!" VerticalAlignment="Top" Width="650" FontFamily="Comic Sans MS" FontWeight="Bold" BorderBrush="{x:Null}"/>
-        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="36" Margin="316,60,0,0" TextWrapping="Wrap" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="В кафе у дяди Фили!" VerticalAlignment="Top" Width="304" FontFamily="Comic Sans MS" FontWeight="Bold" CaretBrush="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" FontSize="20" Height="114" Margin="150,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="Приветствуем вас в нашем ресторане!!!" VerticalAlignment="Top" Width="650" FontFamily="Comic Sans MS" FontWeight="Bold" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

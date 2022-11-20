@@ -9,11 +9,11 @@
         Title="OsnovaPage" Height="450" Width="800"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" IsVisibleChanged="Mouse_IsVisibleChanged">
     <Grid>
-        <Image x:Name="glavphoto" Visibility="Hidden" Source="glav.png" Stretch="Fill" Height="336" VerticalAlignment="Bottom"/>
+        <Image x:Name="glavphoto" Visibility="Hidden" Source="./Photo/PhotoMain.jpg" Stretch="Fill" Height="336" VerticalAlignment="Bottom"/>
         <Grid x:Name="panelHeader" VerticalAlignment="Top" Height="50" MouseDown="PanelHeader_MouseDown" Margin="0,0,652,0"/>
-        <Grid x:Name="sidePanel" Background="#FFA577" HorizontalAlignment="Left" Width="150">
+        <Grid x:Name="sidePanel" Background="#F5DE6E" HorizontalAlignment="Left" Width="150">
             <StackPanel>
-                <Grid Height="150" Background="#FFA577">
+                <Grid Height="150" Background="#F5DE6E">
                     <Image Source="Photo/logo.png" Margin="43,10,59,86"></Image>
                     <Button HorizontalAlignment="Right" Height="20" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" Click="Panel_Click">
                         <Image Source="Photo/menupanel.png"/>
@@ -60,7 +60,7 @@
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Photo/exit.png" Height="25" VerticalAlignment="Center"/>
-                            <Button x:Name="RegBut" Content="Выйти"  HorizontalAlignment="Left" Margin="-10,0,0,0" VerticalAlignment="Top" FontSize="14" Width="105" Height="29" Foreground="White" BorderBrush="{x:Null}" Click="RegBut_Click" FontFamily="Comic Sans MS" FontWeight="Bold" Background="{x:Null}"/>
+                            <Button x:Name="RegBut" Content="Выйти" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="14" Width="105" Height="36" Foreground="White" BorderBrush="{x:Null}" Click="RegBut_Click" FontFamily="Comic Sans MS" FontWeight="Bold" Background="#E6A9B0"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
@@ -243,7 +243,7 @@
                 <DataGridTemplateColumn x:Name="Prinyato" Visibility="Hidden" Width="170">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Принять заказ" Background="LightGreen" Width="130" Click="Button_Click_4"/>
+                            <Button Content="Принять заказ" Background="#E2BEDA" Width="130" Click="Button_Click_4"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
